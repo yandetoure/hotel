@@ -97,7 +97,8 @@
                 <div
                     class="glass p-10 rounded-[2rem] text-center group hover:bg-white/5 transition-all hover:border-amber-500/30">
                     <div class="text-4xl mb-6 transform group-hover:scale-125 transition-transform duration-500">
-                        {{ $stat['icon'] }}</div>
+                        {{ $stat['icon'] }}
+                    </div>
                     <div class="text-4xl font-black mb-2 text-gradient tracking-tight">{{ $stat['value'] }}</div>
                     <div class="text-slate-400 text-[9px] uppercase tracking-[0.2em] font-bold">{{ $stat['label'] }}</div>
                 </div>
@@ -128,20 +129,44 @@
                         'view' => 'Vue Océan'
                     ],
                     [
+                        'name' => 'Villa Présidentielle',
+                        'price' => '1500',
+                        'image' => '/villa_presidentielle.png',
+                        'tag' => 'Privilège Absolu',
+                        'size' => '250m²',
+                        'view' => 'Piscine Privée'
+                    ],
+                    [
                         'name' => 'Chambre Deluxe',
-                        'price' => '450',
+                        'price' => '350',
                         'image' => '/chambre_deluxe.png',
                         'tag' => 'Élégance Moderne',
                         'size' => '45m²',
-                        'view' => 'Vue Panoramique'
+                        'view' => 'Vue Jardin'
+                    ],
+                    [
+                        'name' => 'Suite Famille',
+                        'price' => '550',
+                        'image' => '/suite_famille.png',
+                        'tag' => 'Espace & Famille',
+                        'size' => '80m²',
+                        'view' => 'Interconnectée'
                     ],
                     [
                         'name' => 'Suite Junior',
-                        'price' => '600',
+                        'price' => '450',
                         'image' => '/suite_junior.png',
                         'tag' => 'Confort & Sérénité',
-                        'size' => '75m²',
-                        'view' => 'Côté Jardin'
+                        'size' => '60m²',
+                        'view' => 'Design Épuré'
+                    ],
+                    [
+                        'name' => 'Chambre Confort',
+                        'price' => '220',
+                        'image' => '/chambre_confort.png',
+                        'tag' => 'Essentiel Cosy',
+                        'size' => '30m²',
+                        'view' => 'Côté Parc'
                     ]
                 ];
             @endphp
@@ -190,10 +215,10 @@
                             @endforeach
                         </div>
 
-                        <button
-                            class="w-full py-4 bg-white/5 hover:bg-white text-white hover:text-black font-black uppercase tracking-widest text-[10px] rounded-2xl transition-all duration-300 transform group-hover:-translate-y-1">
+                        <a href="{{ route('booking.create', ['room' => $room['name']]) }}" wire:navigate
+                            class="block w-full py-4 bg-white/5 hover:bg-white text-white hover:text-black text-center font-black uppercase tracking-widest text-[10px] rounded-2xl transition-all duration-300 transform group-hover:-translate-y-1">
                             Réserver cette Suite
-                        </button>
+                        </a>
                     </div>
                 </div>
             @endforeach

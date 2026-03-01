@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Livewire\Volt\Volt;
+
 Route::view('/', 'welcome');
 
 Route::view('dashboard', 'dashboard')
@@ -12,4 +14,7 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+Volt::route('book', 'booking.pages.create')
+    ->name('booking.create');
+
+require __DIR__ . '/auth.php';

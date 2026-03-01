@@ -5,8 +5,7 @@ use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
-new #[Layout('layouts.guest')] class extends Component
-{
+new #[Layout('layouts.guest')] class extends Component {
     public LoginForm $form;
 
     /**
@@ -24,48 +23,68 @@ new #[Layout('layouts.guest')] class extends Component
     }
 }; ?>
 
-<div>
+<div class="animate-fade-in">
+    <div class="text-center mb-10">
+        <h2 class="text-2xl font-black tracking-tight mb-2">Bienvenue</h2>
+        <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest">Connectez-vous à votre espace privé
+        </p>
+    </div>
+
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form wire:submit="login">
+    <form wire:submit="login" class="space-y-6">
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input wire:model="form.email" id="email" class="block mt-1 w-full" type="email" name="email" required autofocus autocomplete="username" />
+            <x-text-input wire:model="form.email" id="email" class="block mt-1 w-full" type="email" name="email"
+                required autofocus autocomplete="username" placeholder="votre@email.com" />
             <x-input-error :messages="$errors->get('form.email')" class="mt-2" />
         </div>
 
         <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+        <div>
+            <div class="flex justify-between items-center mb-2">
+                <x-input-label for="password" :value="__('Mot de passe')" class="mb-0" />
+                @if (Route::has('password.request'))
+                    <a class="text-[9px] font-bold uppercase tracking-widest text-amber-500/80 hover:text-amber-500 transition-colors"
+                        href="{{ route('password.request') }}" wire:navigate>
+                        {{ __('Oublié ?') }}
+                    </a>
+                @endif
+            </div>
 
-            <x-text-input wire:model="form.password" id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+            <x-text-input wire:model="form.password" id="password" class="block mt-1 w-full" type="password"
+                name="password" required autocomplete="current-password" placeholder="••••••••" />
 
             <x-input-error :messages="$errors->get('form.password')" class="mt-2" />
         </div>
 
         <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember" class="inline-flex items-center">
-                <input wire:model="form.remember" id="remember" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
+        <div class="flex items-center">
+            <label for="remember" class="inline-flex items-center cursor-pointer group">
+                <input wire:model="form.remember" id="remember" type="checkbox"
+                    class="rounded-lg bg-white/5 border-white/10 text-amber-500 shadow-sm focus:ring-amber-500 focus:ring-offset-0 transition-all cursor-pointer"
+                    name="remember">
+                <span
+                    class="ms-3 text-[10px] font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-300 transition-colors">{{ __('Rester connecté') }}</span>
             </label>
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}" wire:navigate>
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
+        <div class="pt-2">
+            <x-primary-button class="w-full justify-center">
+                {{ __('Se Connecter') }}
             </x-primary-button>
+        </div>
+
+        <div class="text-center pt-6 border-t border-white/5">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                Pas encore de compte ?
+                <a href="{{ route('register') }}" wire:navigate
+                    class="text-amber-500 hover:text-amber-400 transition-colors ml-1">
+                    Créer un compte
+                </a>
+            </p>
         </div>
     </form>
 </div>
