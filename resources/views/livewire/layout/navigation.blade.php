@@ -29,9 +29,19 @@ new class extends Component {
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
-                        {{ __('Tableau de bord') }}
-                    </x-nav-link>
+                    @if(auth()->user()->hasRole('admin'))
+                        <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')"
+                            wire:navigate>
+                            {{ __('Console Admin') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('admin.rooms')" :active="request()->routeIs('admin.rooms')" wire:navigate>
+                            {{ __('Chambres') }}
+                        </x-nav-link>
+                    @else
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
+                            {{ __('Espace Client') }}
+                        </x-nav-link>
+                    @endif
                     <x-nav-link :href="url('/')" wire:navigate>
                         {{ __('Voir le Site') }}
                     </x-nav-link>
@@ -93,9 +103,20 @@ new class extends Component {
     <div :class="{'block': open, 'hidden': ! open}"
         class="hidden sm:hidden bg-slate-900 border-t border-white/5 animate-fade-in">
         <div class="pt-2 pb-3 space-y-1 px-4">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
-                {{ __('Tableau de bord') }}
-            </x-responsive-nav-link>
+            @if(auth()->user()->hasRole('admin'))
+                <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')"
+                    wire:navigate>
+                    {{ __('Console Admin') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.rooms')" :active="request()->routeIs('admin.rooms')"
+                    wire:navigate>
+                    {{ __('Chambres') }}
+                </x-responsive-nav-link>
+            @else
+                <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
+                    {{ __('Espace Client') }}
+                </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
@@ -105,7 +126,8 @@ new class extends Component {
                     x-data="{{ json_encode(['name' => auth()->user()->name]) }}" x-text="name"
                     x-on:profile-updated.window="name = $event.detail.name"></div>
                 <div class="font-medium text-[10px] text-slate-500 uppercase tracking-widest">
-                    {{ auth()->user()->email }}</div>
+                    {{ auth()->user()->email }}
+                </div>
             </div>
 
             <div class="mt-3 space-y-1 px-4 pb-4">
