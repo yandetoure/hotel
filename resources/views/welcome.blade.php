@@ -7,6 +7,7 @@
             <img src="{{ asset('assets/img/hero.png') }}" alt="Luxurious Senegal Resort"
                 class="w-full h-full object-cover scale-105 animate-slow-zoom">
             <div class="absolute inset-0 bg-black/40"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent h-1/3"></div>
         </div>
 
         <div class="relative z-10 text-center text-white px-6 max-w-4xl">

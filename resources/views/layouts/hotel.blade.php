@@ -15,8 +15,9 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap"
         rel="stylesheet">
 
-    <!-- Styles -->
+    <!-- Scripts & Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 </head>
 
