@@ -1,12 +1,112 @@
+:root {
+    --primary-ochre: #C06C3E;
+    --primary-blue: #1A3C5A;
+    --primary-green: #2D5A47;
+    --accent-gold: #D4AF37;
+    --sand-light: #F9F5F0;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--sand-light);
+    color: var(--primary-blue);
+    overflow-x: hidden;
+}
+
+.font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-premium {
+    background: var(--primary-ochre);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.btn-premium:hover {
+    background: var(--accent-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    position: relative;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--accent-gold);
+}
+
+.nav-link {
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--accent-gold);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .animate-fade-in {
@@ -15,13 +115,6 @@
 
 .animate-float {
     animation: float 4s ease-in-out infinite;
-}
-
-.glass {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
 .glass-dark {
@@ -33,5 +126,6 @@
 .text-gradient {
     background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }

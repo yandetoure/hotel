@@ -1,324 +1,243 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ config('app.name', 'Hotel Royale') }}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <style>
-        body {
-            font-family: 'Outfit', sans-serif;
-        }
-    </style>
-</head>
-
-<body class="antialiased bg-slate-950 text-white overflow-x-hidden">
-    <!-- Navigation -->
-    <nav
-        class="fixed w-full z-50 px-6 py-4 flex justify-between items-center glass-dark mt-4 mx-auto max-w-7xl rounded-2xl left-1/2 -translate-x-1/2">
-        <div class="text-2xl font-bold tracking-tighter">
-            <span class="text-gradient">HOTEL</span> ROYALE
-        </div>
-        <div class="hidden md:flex space-x-8 text-sm font-medium">
-            <a href="#" class="hover:text-amber-400 transition-colors tracking-widest uppercase text-[10px]">Accueil</a>
-            <a href="#"
-                class="hover:text-amber-400 transition-colors tracking-widest uppercase text-[10px]">Chambres</a>
-            <a href="#"
-                class="hover:text-amber-400 transition-colors tracking-widest uppercase text-[10px]">Services</a>
-            <a href="#" class="hover:text-amber-400 transition-colors tracking-widest uppercase text-[10px]">A
-                Propos</a>
-        </div>
-        <div class="flex items-center space-x-4">
-            @if (Route::has('login'))
-                @auth
-                    <a href="{{ url('/dashboard') }}"
-                        class="px-5 py-2 rounded-full border border-amber-500/50 hover:bg-amber-500/10 transition-all text-xs font-bold uppercase tracking-widest">Tableau
-                        de bord</a>
-                @else
-                    <a href="{{ route('login') }}"
-                        class="text-[10px] font-bold uppercase tracking-widest hover:text-amber-400 transition-colors">Connexion</a>
-                    <a href="{{ route('register') }}"
-                        class="px-6 py-2.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 text-black text-xs font-black uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-amber-500/20">Réserver</a>
-                @endauth
-            @endif
-        </div>
-    </nav>
+<x-hotel-layout>
+    @section('title', 'Accueil - Les Hôtels du Sénégal Group')
 
     <!-- Hero Section -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <!-- Using the generated image path correctly -->
-            <img src="/hotel_hero_background_1772394369903.png" alt="Hero Background"
-                class="w-full h-full object-cover opacity-60 scale-105 animate-float">
-            <div class="absolute inset-0 bg-gradient-to-b from-slate-950/20 via-slate-950/60 to-slate-950"></div>
+            <img src="{{ asset('assets/img/hero.png') }}" alt="Luxurious Senegal Resort"
+                class="w-full h-full object-cover scale-105 animate-slow-zoom">
+            <div class="absolute inset-0 bg-black/40"></div>
         </div>
 
-        <div class="relative z-10 text-center px-4 max-w-4xl animate-fade-in">
-            <div
-                class="inline-block px-4 py-1.5 rounded-full glass border-white/10 text-amber-500 text-[10px] font-black uppercase tracking-[0.3em] mb-8">
-                Bienvenue au Sommet du Luxe
-            </div>
-            <h1 class="text-6xl md:text-8xl lg:text-9xl font-black mb-8 leading-tight tracking-tighter">
-                L'Élégance <br> <span class="text-gradient">Absolue</span>
+        <div class="relative z-10 text-center text-white px-6 max-w-4xl">
+            <h1 class="font-serif text-5xl md:text-7xl mb-6 leading-tight drop-shadow-lg">
+                Découvrez les Hôtels du <span class="text-accent-gold italic">Sénégal Group</span>
             </h1>
-            <p class="text-lg md:text-xl text-slate-300 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-                Vivez une expérience sensorielle inoubliable au cœur d'un écrin de raffinement et de sérénité.
+            <p class="text-xl md:text-2xl mb-10 font-light tracking-wide drop-shadow-md">
+                Signature : Trois destinations d’exception au Sénégal
             </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <button
-                    class="w-full sm:w-auto px-10 py-5 bg-white text-black font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-amber-400 transition-all transform hover:-translate-y-1 shadow-2xl">
-                    Découvrir nos suites
-                </button>
-                <button
-                    class="w-full sm:w-auto px-10 py-5 glass text-white font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-white/10 transition-all border-white/20">
-                    Visite virtuelle
-                </button>
+        </div>
+
+        <!-- Booking Engine Overlay -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 w-full max-w-5xl px-6 z-20">
+            <div class="glass p-8 rounded-2xl shadow-2xl">
+                <form action="/reservations" class="grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
+                    <div class="space-y-2">
+                        <label
+                            class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Destination</label>
+                        <select name="hotel"
+                            class="w-full bg-white/50 border-none rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary-ochre transition-all">
+                            <option value="">Choisir un hôtel</option>
+                            <option value="pelican">Pélican du Saloum</option>
+                            <option value="nema">Néma Kadior</option>
+                            <option value="royal">Royal Saly</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Arrivée -
+                            Départ</label>
+                        <input type="text" placeholder="Dates"
+                            class="w-full bg-white/50 border-none rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary-ochre transition-all">
+                    </div>
+                    <div class="space-y-2">
+                        <label
+                            class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Personnes</label>
+                        <select
+                            class="w-full bg-white/50 border-none rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary-ochre transition-all">
+                            <option>1 Adulte</option>
+                            <option selected>2 Adultes</option>
+                            <option>3 Adultes</option>
+                            <option>Famille</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full btn-premium py-4">RECHERCHER</button>
+                    </div>
+                </form>
             </div>
         </div>
-
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50 flex flex-col items-center">
-            <span class="text-[8px] uppercase tracking-[0.5em] mb-2 font-bold">Scroll</span>
-            <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
-                </path>
-            </svg>
-        </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="py-20 px-6 max-w-7xl mx-auto -mt-32 relative z-20">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            @foreach([['icon' => '🏨', 'label' => 'Suites Luxe', 'value' => '45+'], ['icon' => '🌟', 'label' => 'Note Clients', 'value' => '4.9/5'], ['icon' => '🌊', 'label' => 'Piscines', 'value' => '3'], ['icon' => '👨‍🍳', 'label' => 'Chefs Étoilés', 'value' => '5']] as $stat)
-                <div
-                    class="glass p-10 rounded-[2rem] text-center group hover:bg-white/5 transition-all hover:border-amber-500/30">
-                    <div class="text-4xl mb-6 transform group-hover:scale-125 transition-transform duration-500">
-                        {{ $stat['icon'] }}
-                    </div>
-                    <div class="text-4xl font-black mb-2 text-gradient tracking-tight">{{ $stat['value'] }}</div>
-                    <div class="text-slate-400 text-[9px] uppercase tracking-[0.2em] font-bold">{{ $stat['label'] }}</div>
+    <!-- Destinations Section -->
+    <section class="py-24 px-6 bg-sand-light" id="destinations">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <div>
+                    <h4 class="text-primary-ochre font-bold uppercase tracking-widest text-sm mb-2">Nos Destinations
+                    </h4>
+                    <h2 class="font-serif text-4xl md:text-5xl text-primary-blue section-title">Explorez le Sénégal</h2>
                 </div>
-            @endforeach
-        </div>
-    </section>
+                <a href="/hotels"
+                    class="text-primary-ochre font-bold hover:text-accent-gold transition-colors underline decoration-2 underline-offset-8">Voir
+                    tout</a>
+            </div>
 
-    <!-- Rooms Section -->
-    <section class="py-32 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-20 animate-fade-in">
-            <h2 class="text-amber-500 font-black tracking-[0.4em] mb-4 text-[10px] uppercase">Hébergements d'Exception
-            </h2>
-            <h3 class="text-4xl md:text-6xl font-black tracking-tight mb-6">Nos Chambres & <span
-                    class="text-gradient">Suites</span></h3>
-            <p class="text-slate-400 max-w-2xl mx-auto font-light">Chaque espace est une invitation au voyage, mêlant
-                authenticité et modernité pour un séjour inoubliable.</p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8">
-            @php
-                $rooms = [
-                    [
-                        'name' => 'Suite Royale',
-                        'price' => '850',
-                        'image' => '/suite_royale.png',
-                        'tag' => 'Le Sommet du Luxe',
-                        'size' => '120m²',
-                        'view' => 'Vue Océan'
-                    ],
-                    [
-                        'name' => 'Villa Présidentielle',
-                        'price' => '1500',
-                        'image' => '/villa_presidentielle.png',
-                        'tag' => 'Privilège Absolu',
-                        'size' => '250m²',
-                        'view' => 'Piscine Privée'
-                    ],
-                    [
-                        'name' => 'Chambre Deluxe',
-                        'price' => '350',
-                        'image' => '/chambre_deluxe.png',
-                        'tag' => 'Élégance Moderne',
-                        'size' => '45m²',
-                        'view' => 'Vue Jardin'
-                    ],
-                    [
-                        'name' => 'Suite Famille',
-                        'price' => '550',
-                        'image' => '/suite_famille.png',
-                        'tag' => 'Espace & Famille',
-                        'size' => '80m²',
-                        'view' => 'Interconnectée'
-                    ],
-                    [
-                        'name' => 'Suite Junior',
-                        'price' => '450',
-                        'image' => '/suite_junior.png',
-                        'tag' => 'Confort & Sérénité',
-                        'size' => '60m²',
-                        'view' => 'Design Épuré'
-                    ],
-                    [
-                        'name' => 'Chambre Confort',
-                        'price' => '220',
-                        'image' => '/chambre_confort.png',
-                        'tag' => 'Essentiel Cosy',
-                        'size' => '30m²',
-                        'view' => 'Côté Parc'
-                    ]
-                ];
-            @endphp
-
-            @foreach($rooms as $room)
-                <div
-                    class="group relative bg-slate-900 rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-amber-500/30 transition-all duration-500 shadow-2xl">
-                    <!-- Image Container -->
-                    <div class="relative h-80 overflow-hidden">
-                        <img src="{{ $room['image'] }}" alt="{{ $room['name'] }}"
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Pelican -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-2xl aspect-[4/5] mb-6 shadow-lg">
+                        <img src="{{ asset('assets/img/pelican.png') }}" alt="Pélican du Saloum"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60">
+                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 transition-opacity group-hover:opacity-80">
                         </div>
-                        <div class="absolute top-6 left-6">
-                            <span
-                                class="px-4 py-1.5 rounded-full glass border-white/10 text-[9px] font-black uppercase tracking-widest text-amber-400">
-                                {{ $room['tag'] }}
-                            </span>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="font-serif text-2xl mb-1">Pélican du Saloum</h3>
+                            <p class="text-sm opacity-90">Nature & évasion</p>
                         </div>
                     </div>
+                    <a href="/hotel/pelican-du-saloum" class="btn-premium w-full text-center">Découvrir</a>
+                </div>
 
-                    <!-- Content -->
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h4 class="text-2xl font-black tracking-tight mb-1">{{ $room['name'] }}</h4>
-                                <div class="flex space-x-3 text-[10px] text-slate-500 font-bold uppercase tracking-wider">
-                                    <span>{{ $room['size'] }}</span>
-                                    <span class="text-amber-500/30">•</span>
-                                    <span>{{ $room['view'] }}</span>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <span class="text-sm text-slate-500 block">À partir de</span>
-                                <span class="text-2xl font-black text-gradient">{{ $room['price'] }}€</span>
-                            </div>
+                <!-- Nema Kadior -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-2xl aspect-[4/5] mb-6 shadow-lg">
+                        <img src="{{ asset('assets/img/nema.png') }}" alt="Néma Kadior"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 transition-opacity group-hover:opacity-80">
                         </div>
-
-                        <div class="grid grid-cols-3 gap-2 mb-8">
-                            @foreach(['📶 Wifi', '❄️ Clim', '☕ Safe'] as $amenity)
-                                <div
-                                    class="text-[9px] font-bold py-2 px-1 rounded-xl bg-white/5 text-center text-slate-400 uppercase tracking-tighter">
-                                    {{ $amenity }}
-                                </div>
-                            @endforeach
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="font-serif text-2xl mb-1">Néma Kadior</h3>
+                            <p class="text-sm opacity-90">Authenticité de la Casamance</p>
                         </div>
+                    </div>
+                    <a href="/hotel/nema-kadior" class="btn-premium w-full text-center">Découvrir</a>
+                </div>
 
-                        <a href="{{ route('booking.create', ['room' => $room['name']]) }}" wire:navigate
-                            class="block w-full py-4 bg-white/5 hover:bg-white text-white hover:text-black text-center font-black uppercase tracking-widest text-[10px] rounded-2xl transition-all duration-300 transform group-hover:-translate-y-1">
-                            Réserver cette Suite
-                        </a>
+                <!-- Royal Saly -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-2xl aspect-[4/5] mb-6 shadow-lg">
+                        <img src="{{ asset('assets/img/royal.png') }}" alt="Royal Saly"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 transition-opacity group-hover:opacity-80">
+                        </div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="font-serif text-2xl mb-1">Royal Saly</h3>
+                            <p class="text-sm opacity-90">Plage & resort</p>
+                        </div>
+                    </div>
+                    <a href="/hotel/royal-saly" class="btn-premium w-full text-center">Découvrir</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-24 px-6 bg-primary-blue text-white overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-accent-gold/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-primary-ochre/5 rounded-full -ml-48 -mb-48 blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h4 class="text-accent-gold font-bold uppercase tracking-widest text-sm mb-2">Art de vivre</h4>
+                <h2 class="font-serif text-4xl md:text-5xl mb-6">Nos Services d'Exception</h2>
+                <div class="w-20 h-1 bg-accent-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+                @php
+                    $services = [
+                        ['icon' => '🌊', 'label' => 'Piscines'],
+                        ['icon' => '🍽️', 'label' => 'Restaurants'],
+                        ['icon' => '🛶', 'label' => 'Excursions'],
+                        ['icon' => '🤝', 'label' => 'Séminaires'],
+                        ['icon' => '📶', 'label' => 'Wi-Fi'],
+                        ['icon' => '🌴', 'label' => 'Activités'],
+                    ];
+                @endphp
+                @foreach($services as $service)
+                    <div
+                        class="flex flex-col items-center p-6 glass border-white/5 rounded-xl hover:bg-white/10 transition-all cursor-default">
+                        <span class="text-4xl mb-4">{{ $service['icon'] }}</span>
+                        <span class="font-semibold uppercase tracking-tighter text-xs">{{ $service['label'] }}</span>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <!-- Offres Section -->
+    <section class="py-24 px-6 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
+            <div class="lg:w-1/2">
+                <h4 class="text-primary-ochre font-bold uppercase tracking-widest text-sm mb-2">Exclusivités</h4>
+                <h2 class="font-serif text-4xl md:text-5xl text-primary-blue mb-8">Offres Spéciales</h2>
+
+                <div class="space-y-6 mb-10">
+                    <div
+                        class="flex items-start space-x-4 p-4 rounded-xl hover:bg-sand-light transition-colors border-l-4 border-accent-gold">
+                        <div class="flex-shrink-0 text-2xl">🥂</div>
+                        <div>
+                            <h4 class="font-bold text-primary-blue text-lg">Weekend détente</h4>
+                            <p class="text-gray-500 text-sm">Profitez d'une évasion relaxante avec spa et dîner
+                                gastronomique.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 p-4 rounded-xl hover:bg-sand-light transition-colors">
+                        <div class="flex-shrink-0 text-2xl">👨‍👩-👧‍👦</div>
+                        <div>
+                            <h4 class="font-bold text-primary-blue text-lg">Séjour famille</h4>
+                            <p class="text-gray-500 text-sm">Des activités pour tous les âges et des chambres
+                                communicantes.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 p-4 rounded-xl hover:bg-sand-light transition-colors">
+                        <div class="flex-shrink-0 text-2xl">💍</div>
+                        <div>
+                            <h4 class="font-bold text-primary-blue text-lg">Lune de miel</h4>
+                            <p class="text-gray-500 text-sm">Un cadre romantique inoubliable pour célébrer votre union.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            @endforeach
-        </div>
-    </section>
 
-    <!-- Features Section -->
-    <section class="py-32 px-6 max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
-            <div class="max-w-xl">
-                <h2 class="text-amber-500 font-black tracking-[0.4em] mb-4 text-[10px] uppercase">Services Exclusifs
-                </h2>
-                <h3 class="text-4xl md:text-6xl font-black tracking-tight leading-none">Un séjour conçu pour votre <span
-                        class="italic text-slate-600">confort absolu</span></h3>
+                <a href="#" class="btn-premium">VOIR TOUTES LES OFFRES</a>
             </div>
-            <div class="h-px bg-slate-800 flex-grow mx-8 hidden lg:block"></div>
-            <p class="text-slate-400 max-w-xs text-sm font-light leading-relaxed">
-                Chaque détail de notre établissement est méticuleusement pensé pour vous offrir une parenthèse enchantée
-                et mémorable.
-            </p>
-        </div>
 
-        <div class="grid md:grid-cols-3 gap-10">
-            <!-- Service 1 -->
-            <div
-                class="group relative rounded-[3rem] overflow-hidden aspect-[4/5] glass border-white/5 hover:border-amber-500/20 transition-all duration-700">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity">
+            <div class="lg:w-1/2 relative">
+                <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="{{ asset('assets/img/hero.png') }}" alt="Special Offers"
+                        class="w-full grayscale-[0.3] hover:grayscale-0 transition-all duration-700">
                 </div>
-                <div class="relative p-10 h-full flex flex-col justify-end">
-                    <div class="w-12 h-px bg-amber-500 mb-6 group-hover:w-full transition-all duration-700"></div>
-                    <h4 class="text-3xl font-black mb-4 tracking-tight">Spa & Bien-être</h4>
-                    <p
-                        class="text-slate-400 text-sm opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                        Relâchez toutes vos tensions dans notre centre de relaxation haut de gamme.
-                    </p>
-                </div>
-            </div>
-            <!-- Service 2 -->
-            <div
-                class="group relative rounded-[3rem] overflow-hidden aspect-[4/5] bg-gradient-to-br from-amber-500 to-orange-600 text-black transform lg:-translate-y-8 shadow-2xl shadow-amber-500/10">
-                <div class="p-10 h-full flex flex-col justify-end">
-                    <div class="w-12 h-px bg-black/30 mb-6 group-hover:w-full transition-all duration-700"></div>
-                    <h4 class="text-3xl font-black mb-4 tracking-tight">Gastronomie</h4>
-                    <p class="text-black/80 text-sm font-bold uppercase tracking-wider">
-                        Une fusion de saveurs locales et internationales préparée par nos chefs étoilés.
-                    </p>
-                </div>
-            </div>
-            <!-- Service 3 -->
-            <div
-                class="group relative rounded-[3rem] overflow-hidden aspect-[4/5] glass border-white/5 hover:border-amber-500/20 transition-all duration-700">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity">
-                </div>
-                <div class="relative p-10 h-full flex flex-col justify-end">
-                    <div class="w-12 h-px bg-amber-500 mb-6 group-hover:w-full transition-all duration-700"></div>
-                    <h4 class="text-3xl font-black mb-4 tracking-tight">Conciergerie</h4>
-                    <p
-                        class="text-slate-400 text-sm opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                        Notre service premium est à votre disposition 24h/24 pour satisfaire tous vos désirs.
-                    </p>
-                </div>
+                <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-accent-gold rounded-2xl -z-0 opacity-20"></div>
+                <div class="absolute -top-6 -left-6 w-48 h-48 bg-primary-blue rounded-2xl -z-0 opacity-10"></div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-40 relative overflow-hidden">
-        <div class="absolute inset-0 bg-amber-500 opacity-[0.02] transform -skew-y-6 scale-150"></div>
-        <div class="max-w-5xl mx-auto px-6 text-center animate-fade-in relative z-10">
-            <h2 class="text-4xl md:text-6xl font-black mb-10 tracking-tight text-gradient">Évadez-vous Vers l'Excellence
-            </h2>
-            <p class="text-slate-400 text-lg mb-12 max-w-2xl mx-auto font-light">
-                Réservez dès maintenant et profitez de tarifs exclusifs pour votre prochain séjour inoubliable.
-            </p>
-            <div class="flex justify-center">
-                <a href="{{ route('register') }}"
-                    class="px-12 py-6 bg-gradient-to-r from-amber-500 to-orange-600 text-black font-black uppercase tracking-widest text-sm rounded-2xl hover:scale-110 hover:-rotate-1 transition-all shadow-2xl shadow-amber-500/20">
-                    Commencer ma réservation
-                </a>
+    <!-- Avis Clients -->
+    <section class="py-24 px-6 bg-sand-light overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center">
+            <h4 class="text-primary-ochre font-bold uppercase tracking-widest text-sm mb-12">Ce que nos clients disent
+            </h4>
+            <div class="mb-8">
+                <span class="text-accent-gold text-4xl">★★★★★</span>
             </div>
+            <blockquote class="font-serif text-3xl md:text-4xl text-primary-blue italic mb-10 leading-relaxed">
+                "Une expérience absolument magnifique au Sénégal. Le service est impeccable, les paysages sont à couper
+                le souffle et l'authenticité est au rendez-vous. Nous reviendrons sans hésiter."
+            </blockquote>
+            <cite class="not-italic font-bold text-primary-blue uppercase tracking-widest text-sm">— Jean & Marie,
+                Voyageurs Passionnés</cite>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-24 border-t border-white/5 bg-slate-950">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
-            <div class="text-3xl font-black tracking-tighter">
-                <span class="text-gradient">HOTEL</span> ROYALE
-            </div>
-            <div class="flex space-x-12 text-xs font-bold uppercase tracking-widest text-slate-500">
-                <a href="#" class="hover:text-amber-500 transition-colors">Instagram</a>
-                <a href="#" class="hover:text-amber-500 transition-colors">Facebook</a>
-                <a href="#" class="hover:text-amber-500 transition-colors">Concierge</a>
-            </div>
-            <p class="text-slate-600 text-[10px] uppercase font-bold tracking-[0.2em]">© 2026 Hotel Royale — Innovebox
-            </p>
+    <!-- Call to action -->
+    <section class="py-24 px-6 bg-primary-ochre relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-black/20"></div>
         </div>
-    </footer>
-</body>
+        <div class="max-w-4xl mx-auto text-center relative z-10 text-white">
+            <h2 class="font-serif text-4xl md:text-6xl mb-10 leading-tight">Prêt pour votre prochaine aventure ?</h2>
+            <p class="text-xl mb-12 opacity-90">Réservez votre séjour dès maintenant et vivez une expérience
+                d'exception.</p>
+            <a href="/reservations"
+                class="inline-block bg-white text-primary-ochre px-12 py-5 rounded-lg font-bold text-lg hover:bg-accent-gold hover:text-white transition-all shadow-xl hover:-translate-y-1">
+                RÉSERVER MAINTENANT
+            </a>
+        </div>
+    </section>
 
-</html>
+</x-hotel-layout>
