@@ -22,7 +22,7 @@
         <!-- Booking Engine Overlay -->
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 w-full max-w-5xl px-6 z-20">
             <div class="glass p-8 rounded-2xl shadow-2xl">
-                <form action="/reservations" class="grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
+                <form action="/reservations" class="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
                     <div class="space-y-2">
                         <label
                             class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Destination</label>
@@ -35,9 +35,15 @@
                         </select>
                     </div>
                     <div class="space-y-2">
-                        <label class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Arrivée -
-                            Départ</label>
-                        <input type="text" placeholder="Dates"
+                        <label
+                            class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Arrivée</label>
+                        <input type="date"
+                            class="w-full bg-white/50 border-none rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary-ochre transition-all">
+                    </div>
+                    <div class="space-y-2">
+                        <label
+                            class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Départ</label>
+                        <input type="date"
                             class="w-full bg-white/50 border-none rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary-ochre transition-all">
                     </div>
                     <div class="space-y-2">
