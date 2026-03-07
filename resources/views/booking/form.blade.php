@@ -1,164 +1,145 @@
 <x-hotel-layout>
-    @section('title', 'Réserver - Les Hôtels du Sénégal Group')
+    @section('title', 'Réserver votre séjour - Les Hôtels du Sénégal Group')
 
-    <section class="pt-40 pb-24 px-6 bg-sand-light min-h-[80vh]">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
-                <h1 class="font-serif text-5xl text-primary-blue mb-4">Réservez votre séjour</h1>
-                <p class="text-gray-500 uppercase tracking-widest text-sm font-bold">Vivez l'exception au Sénégal</p>
-                <div class="w-16 h-1 bg-accent-gold mx-auto mt-6"></div>
+    <section class="pt-40 pb-32 px-6 bg-[#F9F5F0] min-h-screen relative overflow-hidden">
+        <!-- Background decorative elements -->
+        <div
+            class="absolute top-0 right-0 w-1/3 h-1/3 bg-primary-ochre/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-primary-blue/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2">
+        </div>
+
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="text-center mb-20 animate-fade-in">
+                <span class="text-accent-gold uppercase tracking-[0.4em] text-xs font-bold mb-4 block">Expérience
+                    d'exception</span>
+                <h1 class="font-serif text-5xl md:text-7xl text-primary-blue mb-6 leading-tight">Votre séjour débute ici
+                </h1>
+                <div class="w-24 h-[1px] bg-accent-gold mx-auto"></div>
             </div>
 
-            <div class="glass p-10 rounded-3xl shadow-2xl">
-                <form action="/confirmation" class="space-y-12">
-                    <!-- Step 1: Destination & Dates -->
-                    <div>
-                        <h3 class="font-serif text-2xl text-primary-blue mb-8 border-b border-gray-100 pb-4">1. Choix du
-                            séjour</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div class="space-y-2">
-                                <label class="block text-xs uppercase font-bold text-gray-400">Hôtel</label>
+            <div
+                class="bg-white/70 backdrop-blur-xl rounded-3xl shadow-[0_30px_60px_-15px_rgba(26,60,90,0.1)] border border-white/40 p-8 md:p-16">
+                <form action="/confirmation" class="space-y-20">
+                    <!-- Step 1: Destination -->
+                    <div class="animate-fade-in" style="animation-delay: 0.1s">
+                        <div class="flex items-center space-x-4 mb-10">
+                            <span
+                                class="w-10 h-10 rounded-full bg-primary-blue text-white flex items-center justify-center font-serif text-lg">1</span>
+                            <h3 class="font-serif text-3xl text-primary-blue">Destination & Type de séjour</h3>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            <div class="space-y-3">
+                                <label
+                                    class="block text-[11px] uppercase tracking-[0.2em] font-bold text-gray-400">Choisir
+                                    l'établissement</label>
                                 <select
-                                    class="w-full bg-white border-gray-200 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary-ochre outline-none text-primary-blue font-semibold">
-                                    <option value="royal-saly">Royal Saly</option>
-                                    <option value="pelican">Pélican du Saloum</option>
-                                    <option value="nema">Néma Kadior</option>
+                                    class="w-full bg-transparent border-b-2 border-gray-100 py-4 px-0 focus:border-primary-ochre outline-none text-primary-blue font-serif text-xl transition-all cursor-pointer">
+                                    <option value="royal-saly">Royal Saly — Plage & Resort</option>
+                                    <option value="pelican">Pélican du Saloum — Nature & Évasion</option>
+                                    <option value="nema">Néma Kadior — Authenticité Casamance</option>
                                 </select>
                             </div>
-                            <div class="space-y-2">
-                                <label class="block text-xs uppercase font-bold text-gray-400">Type de chambre</label>
+                            <div class="space-y-3">
+                                <label class="block text-[11px] uppercase tracking-[0.2em] font-bold text-gray-400">Type
+                                    de Suite / Chambre</label>
                                 <select
-                                    class="w-full bg-white border-gray-200 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary-ochre outline-none text-primary-blue font-semibold">
-                                    <option>Standard</option>
-                                    <option>Supérieure / Suite</option>
+                                    class="w-full bg-transparent border-b-2 border-gray-100 py-4 px-0 focus:border-primary-ochre outline-none text-primary-blue font-serif text-xl transition-all cursor-pointer">
+                                    <option>Suite Impériale Vue Mer</option>
+                                    <option>Chambre Deluxe Jardin</option>
+                                    <option>Villa Privée avec Piscine</option>
                                 </select>
                             </div>
-                            <div class="space-y-2">
-                                <label class="block text-xs uppercase font-bold text-gray-400">Dates de séjour</label>
-                                <div class="grid grid-cols-2 gap-4">
-                                    <input type="date"
-                                        class="w-full bg-white border-gray-200 rounded-xl py-4 px-4 focus:ring-2 focus:ring-primary-ochre outline-none">
-                                    <input type="date"
-                                        class="w-full bg-white border-gray-200 rounded-xl py-4 px-4 focus:ring-2 focus:ring-primary-ochre outline-none">
+                            <div class="space-y-3 md:col-span-2">
+                                <label
+                                    class="block text-[11px] uppercase tracking-[0.2em] font-bold text-gray-400">Période
+                                    de séjour</label>
+                                <div class="grid grid-cols-2 gap-8">
+                                    <div class="relative">
+                                        <input type="date"
+                                            class="w-full bg-transparent border-b-2 border-gray-100 py-4 outline-none text-primary-blue font-semibold focus:border-primary-ochre transition-all">
+                                        <span
+                                            class="absolute right-0 top-1/2 -translate-y-1/2 text-xs text-gray-300 uppercase">Arrivée</span>
+                                    </div>
+                                    <div class="relative">
+                                        <input type="date"
+                                            class="w-full bg-transparent border-b-2 border-gray-100 py-4 outline-none text-primary-blue font-semibold focus:border-primary-ochre transition-all">
+                                        <span
+                                            class="absolute right-0 top-1/2 -translate-y-1/2 text-xs text-gray-300 uppercase">Départ</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="space-y-2">
-                                <label class="block text-xs uppercase font-bold text-gray-400">Personnes</label>
-                                <select
-                                    class="w-full bg-white border-gray-200 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary-ochre outline-none font-semibold">
-                                    <option>2 Adultes</option>
-                                    <option>1 Adulte</option>
-                                    <option>Famille</option>
-                                </select>
                             </div>
                         </div>
                     </div>
 
                     <!-- Step 2: Options -->
-                    <div>
-                        <h3 class="font-serif text-2xl text-primary-blue mb-8 border-b border-gray-100 pb-4">2. Options
-                            & Services</h3>
+                    <div class="animate-fade-in" style="animation-delay: 0.2s">
+                        <div class="flex items-center space-x-4 mb-10">
+                            <span
+                                class="w-10 h-10 rounded-full bg-primary-blue text-white flex items-center justify-center font-serif text-lg">2</span>
+                            <h3 class="font-serif text-3xl text-primary-blue">Services & Raffinements</h3>
+                        </div>
+
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <label
-                                class="flex items-center p-4 bg-white border border-gray-100 rounded-xl cursor-pointer hover:bg-primary-ochre/5 transition-colors group">
-                                <input type="checkbox"
-                                    class="w-5 h-5 rounded text-primary-ochre focus:ring-primary-ochre accent-primary-ochre mr-4">
-                                <span
-                                    class="text-sm font-semibold text-primary-blue group-hover:text-primary-ochre">Transfert
-                                    Aéroport</span>
-                            </label>
-                            <label
-                                class="flex items-center p-4 bg-white border border-gray-100 rounded-xl cursor-pointer hover:bg-primary-ochre/5 transition-colors group">
-                                <input type="checkbox" checked
-                                    class="w-5 h-5 rounded text-primary-ochre focus:ring-primary-ochre accent-primary-ochre mr-4">
-                                <span
-                                    class="text-sm font-semibold text-primary-blue group-hover:text-primary-ochre">Petit
-                                    déjeuner</span>
-                            </label>
-                            <label
-                                class="flex items-center p-4 bg-white border border-gray-100 rounded-xl cursor-pointer hover:bg-primary-ochre/5 transition-colors group">
-                                <input type="checkbox"
-                                    class="w-5 h-5 rounded text-primary-ochre focus:ring-primary-ochre accent-primary-ochre mr-4">
-                                <span
-                                    class="text-sm font-semibold text-primary-blue group-hover:text-primary-ochre">Excursion
-                                    Guidée</span>
-                            </label>
+                            @php
+                                $options = [
+                                    ['title' => 'Transfert Privé VIP', 'desc' => 'Accueil aéroport personnalisé'],
+                                    ['title' => 'Pension Complète', 'desc' => 'Gastronomie locale & internationale'],
+                                    ['title' => 'Forfait Bien-être', 'desc' => 'Soins au Spa quotidien'],
+                                ];
+                            @endphp
+                            @foreach($options as $opt)
+                                <label
+                                    class="relative flex flex-col p-6 border border-gray-100 rounded-2xl cursor-pointer hover:border-primary-ochre/30 transition-all group has-[:checked]:border-primary-ochre has-[:checked]:bg-primary-ochre/[0.02]">
+                                    <input type="checkbox"
+                                        class="absolute top-4 right-4 w-5 h-5 rounded-full text-primary-ochre focus:ring-primary-ochre accent-primary-ochre">
+                                    <span class="font-serif text-xl text-primary-blue mb-1">{{ $opt['title'] }}</span>
+                                    <span class="text-xs text-gray-400 leading-relaxed">{{ $opt['desc'] }}</span>
+                                </label>
+                            @endforeach
                         </div>
                     </div>
 
-                    <!-- Step 3: Coordonnées -->
-                    <div>
-                        <h3 class="font-serif text-2xl text-primary-blue mb-8 border-b border-gray-100 pb-4">3.
-                            Coordonnées</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Step 3: Information -->
+                    <div class="animate-fade-in" style="animation-delay: 0.3s">
+                        <div class="flex items-center space-x-4 mb-10">
+                            <span
+                                class="w-10 h-10 rounded-full bg-primary-blue text-white flex items-center justify-center font-serif text-lg">3</span>
+                            <h3 class="font-serif text-3xl text-primary-blue">Informations Personnelles</h3>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                             <div class="space-y-2">
-                                <label class="block text-xs uppercase font-bold text-gray-400">Nom complet</label>
-                                <input type="text" placeholder="M/Mme ..."
-                                    class="w-full bg-white border-gray-200 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary-ochre outline-none">
+                                <label class="block text-[11px] uppercase tracking-[0.2em] font-bold text-gray-400">Nom
+                                    Complet</label>
+                                <input type="text" placeholder="Michel Dupont"
+                                    class="w-full bg-transparent border-b border-gray-100 py-3 outline-none text-primary-blue focus:border-primary-ochre transition-all">
                             </div>
                             <div class="space-y-2">
-                                <label class="block text-xs uppercase font-bold text-gray-400">Email</label>
-                                <input type="email" placeholder="votre@email.com"
-                                    class="w-full bg-white border-gray-200 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary-ochre outline-none">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="block text-xs uppercase font-bold text-gray-400">Téléphone</label>
-                                <input type="tel" placeholder="+221 ..."
-                                    class="w-full bg-white border-gray-200 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary-ochre outline-none">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="block text-xs uppercase font-bold text-gray-400">Pays</label>
-                                <input type="text" placeholder="Sénégal"
-                                    class="w-full bg-white border-gray-200 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary-ochre outline-none">
+                                <label
+                                    class="block text-[11px] uppercase tracking-[0.2em] font-bold text-gray-400">Email
+                                    de contact</label>
+                                <input type="email" placeholder="contact@prestige.com"
+                                    class="w-full bg-transparent border-b border-gray-100 py-3 outline-none text-primary-blue focus:border-primary-ochre transition-all">
                             </div>
                         </div>
                     </div>
 
-                    <!-- Step 4: Paiement -->
-                    <div class="bg-primary-blue/5 p-8 rounded-2xl border border-primary-blue/10">
-                        <h3 class="font-serif text-2xl text-primary-blue mb-6">4. Règlement</h3>
-                        <p class="text-sm text-gray-500 mb-8">Choisissez votre mode de paiement sécurisé pour valider
-                            votre réservation.</p>
-
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                            <label
-                                class="relative flex flex-col items-center p-6 bg-white border-2 border-transparent rounded-2xl cursor-pointer hover:border-accent-gold transition-all group has-[:checked]:border-accent-gold has-[:checked]:bg-accent-gold/5">
-                                <input type="radio" name="payment" class="sr-only" checked>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Orange_Money_logo.png"
-                                    alt="Orange Money" class="h-10 object-contain mb-4">
-                                <span class="font-bold text-xs uppercase tracking-widest text-primary-blue">Orange
-                                    Money</span>
-                            </label>
-                            <label
-                                class="relative flex flex-col items-center p-6 bg-white border-2 border-transparent rounded-2xl cursor-pointer hover:border-accent-gold transition-all group has-[:checked]:border-accent-gold has-[:checked]:bg-accent-gold/5">
-                                <input type="radio" name="payment" class="sr-only">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Visual_of_Wave_Digital_Assets.svg/1024px-Visual_of_Wave_Digital_Assets.svg.png"
-                                    alt="Wave" class="h-10 object-contain mb-4">
-                                <span class="font-bold text-xs uppercase tracking-widest text-primary-blue">Wave</span>
-                            </label>
-                            <label
-                                class="relative flex flex-col items-center p-6 bg-white border-2 border-transparent rounded-2xl cursor-pointer hover:border-accent-gold transition-all group has-[:checked]:border-accent-gold has-[:checked]:bg-accent-gold/5">
-                                <input type="radio" name="payment" class="sr-only">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png"
-                                    alt="Carte" class="h-10 object-contain mb-4">
-                                <span class="font-bold text-xs uppercase tracking-widest text-primary-blue">Carte
-                                    Bancaire</span>
-                            </label>
+                    <!-- Final Action -->
+                    <div class="pt-10 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-10 animate-fade-in"
+                        style="animation-delay: 0.4s">
+                        <div>
+                            <p class="text-[11px] uppercase tracking-[0.3em] font-bold text-gray-400 mb-2">Estimation
+                                Totale</p>
+                            <p class="font-serif text-5xl text-primary-blue font-bold">245 000 <span
+                                    class="text-lg">FCFA</span></p>
                         </div>
-
-                        <div
-                            class="flex flex-col md:flex-row justify-between items-center gap-8 border-t border-primary-blue/10 pt-8">
-                            <div>
-                                <p class="text-xs uppercase tracking-widest font-bold text-gray-400 mb-1">Total estimé
-                                </p>
-                                <p class="text-4xl font-serif text-primary-blue font-bold">150 000 <span
-                                        class="text-lg">FCFA</span></p>
-                                <p class="text-xs text-primary-ochre font-bold mt-1">Acompte de 30% possible à l'étape
-                                    suivante</p>
-                            </div>
-                            <button class="btn-premium !py-5 !px-16 text-lg shadow-xl shadow-primary-ochre/20">CONFIRMER
-                                ET PAYER</button>
-                        </div>
+                        <button type="submit"
+                            class="w-full md:w-auto bg-primary-blue text-white px-16 py-6 rounded-full font-bold uppercase tracking-[0.2em] text-sm hover:bg-primary-ochre transition-all shadow-2xl shadow-primary-blue/20">
+                            Finaliser ma réservation
+                        </button>
                     </div>
                 </form>
             </div>
