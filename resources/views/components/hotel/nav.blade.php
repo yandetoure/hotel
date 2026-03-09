@@ -20,6 +20,8 @@
                 class="text-xs uppercase tracking-widest font-bold transition-all duration-300 hover:text-accent-gold text-white drop-shadow-md">Offres</a>
             <a href="/seminaires"
                 class="text-xs uppercase tracking-widest font-bold transition-all duration-300 hover:text-accent-gold text-white drop-shadow-md">Séminaires</a>
+            <a href="/galerie"
+                class="text-xs uppercase tracking-widest font-bold transition-all duration-300 hover:text-accent-gold text-white drop-shadow-md">Galerie</a>
             <a href="/contact"
                 class="text-xs uppercase tracking-widest font-bold transition-all duration-300 hover:text-accent-gold text-white drop-shadow-md">Contact</a>
 
@@ -58,6 +60,8 @@
             class="font-bold uppercase text-xs tracking-widest text-white hover:text-accent-gold py-2">Offres</a>
         <a href="/seminaires"
             class="font-bold uppercase text-xs tracking-widest text-white hover:text-accent-gold py-2">Séminaires</a>
+        <a href="/galerie"
+            class="font-bold uppercase text-xs tracking-widest text-white hover:text-accent-gold py-2">Galerie</a>
         <a href="/contact"
             class="font-bold uppercase text-xs tracking-widest text-white hover:text-accent-gold py-2">Contact</a>
         <a href="/reservations"

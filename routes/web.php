@@ -8,6 +8,28 @@ Route::view('/', 'welcome')->name('home');
 Route::view('/hotels', 'hotels.index')->name('hotels.index');
 Route::view('/offres', 'offres')->name('offres');
 Route::view('/seminaires', 'seminaires')->name('seminaires');
+Route::get('/galerie', function () {
+    $hotels = [
+        'Royal Saly' => 'Royal saly',
+        'Nema' => 'nema',
+        'Pelican' => 'pellican'
+    ];
+
+    $gallery = [];
+    foreach ($hotels as $displayName => $folderName) {
+        $path = public_path('assets/img/' . $folderName);
+        if (file_exists($path)) {
+            $files = array_filter(scandir($path), function ($file) use ($path) {
+                return !is_dir($path . '/' . $file) && in_array(strtolower(pathinfo($file, PATHINFO_EXTENSION)), ['jpg', 'jpeg', 'png', 'webp', 'gif']);
+            });
+            $gallery[$displayName] = array_map(function ($file) use ($folderName) {
+                return 'assets/img/' . $folderName . '/' . $file;
+            }, $files);
+        }
+    }
+
+    return view('gallery', compact('gallery'));
+})->name('gallery');
 Route::view('/contact', 'contact')->name('contact');
 Route::get('/hotel/{slug}', function ($slug) {
     return view('hotels.show', ['slug' => $slug]);
