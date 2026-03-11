@@ -60,16 +60,9 @@
             <p class="text-sm text-white/70 mb-4">Contact@hotels-senegal.sn</p>
             <p class="text-sm text-white/70 mb-8">+221 33 000 00 00</p>
 
-            <h4 class="font-serif text-sm uppercase tracking-widest mb-6 border-t border-white/10 pt-6">Paiement
-                sécurisé</h4>
-            <div class="flex space-x-4 opacity-70 grayscale hover:grayscale-0 transition-all">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Orange_Money_logo.png" alt="Orange Money"
-                    class="h-6 object-contain">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Visual_of_Wave_Digital_Assets.svg/1024px-Visual_of_Wave_Digital_Assets.svg.png"
-                    alt="Wave" class="h-6 object-contain">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png"
-                    alt="Visa" class="h-6 object-contain">
-            </div>
+            <h4
+                class="font-serif text-sm uppercase tracking-widest mb-6 border-t border-white/10 pt-6 text-accent-gold">
+                Paiement sécurisé</h4>
         </div>
     </div>
 
