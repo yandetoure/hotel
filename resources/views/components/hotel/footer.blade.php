@@ -2,9 +2,11 @@
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 border-b border-white/10 pb-16">
         <!-- Brand -->
         <div class="col-span-1 md:col-span-1">
-            <a href="/" class="inline-block mb-6">
-                <span class="font-serif text-2xl font-bold tracking-tighter">
-                    LES HÔTELS <span class="text-primary-ochre">DU SÉNÉGAL</span>
+            <a href="/" class="flex items-center space-x-3 mb-8 group">
+                <img src="{{ asset('assets/img/logo.png') }}" alt="Logo"
+                    class="h-12 w-auto brightness-110 object-contain">
+                <span class="font-serif text-lg font-bold tracking-tighter whitespace-nowrap">
+                    LES HÔTELS <span class="text-primary-ochre italic">DU SÉNÉGAL</span>
                 </span>
             </a>
             <p class="text-white/70 text-sm leading-relaxed mb-6">

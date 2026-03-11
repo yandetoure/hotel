@@ -3,9 +3,16 @@
     class="fixed top-0 left-0 right-0 z-[100] transition-all duration-300 px-6">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
         <!-- Logo -->
-        <a href="/" class="flex flex-col group">
-            <span class="font-serif text-2xl md:text-3xl font-bold tracking-tighter transition-colors duration-300"
-                :class="scrolled ? 'text-white' : 'text-white drop-shadow-lg'">
+        <a href="/" class="flex items-center space-x-4 group">
+            <!-- Icon/Illustration -->
+            <img src="{{ asset('assets/img/logo.png') }}" alt="Logo"
+                class="h-12 md:h-16 w-auto transition-all duration-300 transform group-hover:scale-110 object-contain"
+                style="filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.2));">
+
+            <!-- Single Line Text -->
+            <span
+                class="font-serif text-xl md:text-2xl font-bold tracking-tighter transition-colors duration-300 whitespace-nowrap"
+                :class="scrolled ? 'text-white' : 'text-white drop-shadow-md'">
                 LES HÔTELS <span class="text-accent-gold italic">DU SÉNÉGAL</span>
             </span>
         </a>
