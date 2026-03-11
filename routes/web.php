@@ -19,9 +19,29 @@ Route::get('/galerie', function () {
     foreach ($hotels as $displayName => $folderName) {
         $path = public_path('assets/img/' . $folderName);
         if (file_exists($path)) {
-            $files = array_filter(scandir($path), function ($file) use ($path) {
+            $allFiles = array_filter(scandir($path), function ($file) use ($path) {
                 return !is_dir($path . '/' . $file) && in_array(strtolower(pathinfo($file, PATHINFO_EXTENSION)), ['jpg', 'jpeg', 'png', 'webp', 'gif']);
             });
+
+            // Group files to find high-res vs thumbnails
+            $files = [];
+            foreach ($allFiles as $file) {
+                $info = pathinfo($file);
+                $name = $info['filename'];
+                $ext = $info['extension'];
+
+                // If it's a thumbnail, check if we already added a high-res version
+                if (str_ends_with($name, '-th')) {
+                    $baseName = substr($name, 0, -3);
+                    $highResFile = $baseName . '.' . $ext;
+                    if (in_array($highResFile, $allFiles)) {
+                        continue; // Skip thumbnail if high-res exists
+                    }
+                }
+
+                $files[] = $file;
+            }
+
             $gallery[$displayName] = array_map(function ($file) use ($folderName) {
                 return 'assets/img/' . $folderName . '/' . $file;
             }, $files);
