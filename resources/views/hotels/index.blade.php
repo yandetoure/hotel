@@ -74,27 +74,34 @@
     </section>
 
     <!-- Services Banner -->
-    <section class="py-20 px-6 bg-sand-light">
-        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-            <div>
-                <span class="text-4xl mb-4 block">⭐</span>
-                <h4 class="font-bold text-primary-blue">Excellence</h4>
-                <p class="text-xs text-gray-500 uppercase tracking-widest">Service 5 Étoiles</p>
+    <section class="py-24 px-6 bg-primary-blue text-white overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-accent-gold/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-primary-ochre/5 rounded-full -ml-48 -mb-48 blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 relative z-10">
+            <!-- Excellence -->
+            <div class="flex flex-col items-center p-10 service-card rounded-2xl cursor-default group">
+                <span class="material-symbols-outlined service-icon">star</span>
+                <span class="service-label">Excellence</span>
+                <p class="service-sublabel">Service 5 Étoiles</p>
             </div>
-            <div>
-                <span class="text-4xl mb-4 block">🌍</span>
-                <h4 class="font-bold text-primary-blue">Authenticité</h4>
-                <p class="text-xs text-gray-500 uppercase tracking-widest">Culture Locale</p>
+            <!-- Authenticité -->
+            <div class="flex flex-col items-center p-10 service-card rounded-2xl cursor-default group">
+                <span class="material-symbols-outlined service-icon">public</span>
+                <span class="service-label">Authenticité</span>
+                <p class="service-sublabel">Culture Locale</p>
             </div>
-            <div>
-                <span class="text-4xl mb-4 block">🛡️</span>
-                <h4 class="font-bold text-primary-blue">Sécurité</h4>
-                <p class="text-xs text-gray-500 uppercase tracking-widest">Tranquillité Totale</p>
+            <!-- Sécurité -->
+            <div class="flex flex-col items-center p-10 service-card rounded-2xl cursor-default group">
+                <span class="material-symbols-outlined service-icon">verified_user</span>
+                <span class="service-label">Sécurité</span>
+                <p class="service-sublabel">Tranquillité Totale</p>
             </div>
-            <div>
-                <span class="text-4xl mb-4 block">🌱</span>
-                <h4 class="font-bold text-primary-blue">Écologie</h4>
-                <p class="text-xs text-gray-500 uppercase tracking-widest">Tourisme Durable</p>
+            <!-- Écologie -->
+            <div class="flex flex-col items-center p-10 service-card rounded-2xl cursor-default group">
+                <span class="material-symbols-outlined service-icon">eco</span>
+                <span class="service-label">Écologie</span>
+                <p class="service-sublabel">Tourisme Durable</p>
             </div>
         </div>
     </section>

@@ -164,7 +164,7 @@ body {
     opacity: 0.05;
 }
 
-.service-card > * {
+.service-card>* {
     position: relative;
     z-index: 1;
 }
@@ -191,4 +191,17 @@ body {
 
 .service-card:hover .service-label {
     color: white;
+}
+
+.service-sublabel {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.service-card:hover .service-sublabel {
+    color: rgba(255, 255, 255, 0.7);
 }
