@@ -146,19 +146,20 @@
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
                 @php
                     $services = [
-                        ['icon' => '🌊', 'label' => 'Piscines'],
-                        ['icon' => '🍽️', 'label' => 'Restaurants'],
-                        ['icon' => '🛶', 'label' => 'Excursions'],
-                        ['icon' => '🤝', 'label' => 'Séminaires'],
-                        ['icon' => '📶', 'label' => 'Wi-Fi'],
-                        ['icon' => '🌴', 'label' => 'Activités'],
+                        ['icon' => 'pool', 'label' => 'Piscines'],
+                        ['icon' => 'restaurant', 'label' => 'Restaurants'],
+                        ['icon' => 'sailing', 'label' => 'Excursions'],
+                        ['icon' => 'groups', 'label' => 'Séminaires'],
+                        ['icon' => 'wifi', 'label' => 'Wi-Fi'],
+                        ['icon' => 'celebration', 'label' => 'Activités'],
                     ];
                 @endphp
                 @foreach($services as $service)
-                    <div
-                        class="flex flex-col items-center p-6 glass border-white/5 rounded-xl hover:bg-white/10 transition-all cursor-default">
-                        <span class="text-4xl mb-4">{{ $service['icon'] }}</span>
-                        <span class="font-semibold uppercase tracking-tighter text-xs">{{ $service['label'] }}</span>
+                    <div class="flex flex-col items-center p-8 service-card rounded-2xl cursor-default group">
+                        <span class="material-symbols-outlined service-icon">
+                            {{ $service['icon'] }}
+                        </span>
+                        <span class="service-label">{{ $service['label'] }}</span>
                     </div>
                 @endforeach
             </div>
