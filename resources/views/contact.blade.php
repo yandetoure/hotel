@@ -21,28 +21,35 @@
                 <div>
                     <h3 class="font-serif text-3xl text-primary-blue mb-8 section-title">Nos Coordonnées</h3>
                     <div class="space-y-8">
-                        <div class="flex items-start space-x-4">
-                            <span class="text-3xl">📞</span>
+                        <div class="flex items-start space-x-6 group">
+                            <div class="contact-icon-box">
+                                <span class="material-symbols-outlined">call</span>
+                            </div>
                             <div>
-                                <h4 class="font-bold text-primary-blue">Téléphone</h4>
-                                <p class="text-gray-500">+221 33 000 00 00</p>
-                                <p class="text-xs text-gray-400 mt-1 uppercase tracking-widest">Disponible 24h/24</p>
+                                <h4 class="font-bold text-primary-blue text-lg mb-1">Téléphone</h4>
+                                <p class="text-gray-500 font-medium">+221 33 000 00 00</p>
+                                <p class="text-xs text-gray-400 mt-1 uppercase tracking-widest font-bold">Disponible
+                                    24h/24</p>
                             </div>
                         </div>
-                        <div class="flex items-start space-x-4">
-                            <span class="text-3xl">📧</span>
+                        <div class="flex items-start space-x-6 group">
+                            <div class="contact-icon-box">
+                                <span class="material-symbols-outlined">mail</span>
+                            </div>
                             <div>
-                                <h4 class="font-bold text-primary-blue">Email</h4>
-                                <p class="text-gray-500">contact@hotels-senegal.sn</p>
-                                <p class="text-gray-500">reservations@hotels-senegal.sn</p>
+                                <h4 class="font-bold text-primary-blue text-lg mb-1">Email</h4>
+                                <p class="text-gray-500 font-medium">contact@hotels-senegal.sn</p>
+                                <p class="text-gray-500 font-medium">reservations@hotels-senegal.sn</p>
                             </div>
                         </div>
-                        <div class="flex items-start space-x-4">
-                            <span class="text-3xl">📍</span>
+                        <div class="flex items-start space-x-6 group">
+                            <div class="contact-icon-box">
+                                <span class="material-symbols-outlined">location_on</span>
+                            </div>
                             <div>
-                                <h4 class="font-bold text-primary-blue">Siège Social</h4>
-                                <p class="text-gray-500">Saly Portudal, B.P. 518</p>
-                                <p class="text-gray-500">Mbour, Sénégal</p>
+                                <h4 class="font-bold text-primary-blue text-lg mb-1">Siège Social</h4>
+                                <p class="text-gray-500 font-medium">Saly Portudal, B.P. 518</p>
+                                <p class="text-gray-500 font-medium">Mbour, Sénégal</p>
                             </div>
                         </div>
                     </div>
@@ -52,8 +59,8 @@
                 <div class="bg-primary-green/5 p-8 rounded-3xl border border-primary-green/10">
                     <div class="flex items-center space-x-4 mb-4">
                         <div
-                            class="w-12 h-12 bg-primary-green text-white rounded-full flex items-center justify-center text-2xl">
-                            💬
+                            class="w-14 h-14 bg-primary-green text-white rounded-2xl flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined !text-3xl">chat</span>
                         </div>
                         <h4 class="font-bold text-primary-green text-xl">Service WhatsApp</h4>
                     </div>
@@ -115,7 +122,10 @@
         </iframe>
         <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div class="glass p-10 rounded-2xl text-center max-w-md mx-6 border-none pointer-events-auto">
-                <span class="text-4xl block mb-4">📍</span>
+                <div
+                    class="w-16 h-16 bg-accent-gold text-white rounded-full flex items-center justify-center shadow-xl mb-6 mx-auto">
+                    <span class="material-symbols-outlined !text-3xl">location_on</span>
+                </div>
                 <!-- <h3 class="font-serif text-2xl text-primary-blue mb-2">Nos bureaux à Saly</h3> -->
                 <!-- <p class="text-gray-600">Situés à l'entrée de la zone touristique de Saly Portudal.</p> -->
                 <div class="mt-6 w-16 h-1 bg-accent-gold mx-auto"></div>

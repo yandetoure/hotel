@@ -205,3 +205,29 @@ body {
 .service-card:hover .service-sublabel {
     color: rgba(255, 255, 255, 0.7);
 }
+
+/* Contact Page Styles */
+.contact-icon-box {
+    width: 56px;
+    height: 56px;
+    background: var(--sand-light);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-ochre);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.flex:hover .contact-icon-box {
+    background: var(--primary-ochre);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(192, 108, 62, 0.2);
+}
+
+.contact-icon-box span {
+    font-size: 28px !important;
+}
