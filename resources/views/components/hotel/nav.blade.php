@@ -15,15 +15,15 @@
         <div class="hidden lg:flex items-center gap-8">
             <a href="{{ route('home') }}"
                 class="text-[11px] font-bold uppercase tracking-widest text-[#8c7a76] hover:text-[#a67c52] transition-colors italic">Accueil</a>
-            <a href="/hotels"
+            <a href="{{ route('hotels.index') }}"
                 class="text-[11px] font-bold uppercase tracking-widest text-[#8c7a76] hover:text-[#a67c52] transition-colors italic">Chambres & Suites</a>
             <a href="#"
                 class="text-[11px] font-bold uppercase tracking-widest text-[#8c7a76] hover:text-[#a67c52] transition-colors italic">Restaurant & Bars</a>
             <a href="#"
                 class="text-[11px] font-bold uppercase tracking-widest text-[#8c7a76] hover:text-[#a67c52] transition-colors italic">Activités</a>
-            <a href="/seminaires"
+            <a href="{{ route('seminaires') }}"
                 class="text-[11px] font-bold uppercase tracking-widest text-[#8c7a76] hover:text-[#a67c52] transition-colors italic">Événements</a>
-            <a href="/galerie"
+            <a href="{{ route('galerie') }}"
                 class="text-[11px] font-bold uppercase tracking-widest text-[#8c7a76] hover:text-[#a67c52] transition-colors italic">Galerie</a>
         </div>
 
@@ -58,15 +58,15 @@
         class="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-[#e8dedc] p-6 flex flex-col space-y-4 shadow-lg">
         <a href="{{ route('home') }}"
             class="font-bold uppercase text-xs tracking-widest text-[#8c7a76] hover:text-[#a67c52] py-2 italic">Accueil</a>
-        <a href="/hotels"
+        <a href="{{ route('hotels.index') }}"
             class="font-bold uppercase text-xs tracking-widest text-[#8c7a76] hover:text-[#a67c52] py-2 italic">Chambres & Suites</a>
         <a href="#"
             class="font-bold uppercase text-xs tracking-widest text-[#8c7a76] hover:text-[#a67c52] py-2 italic">Restaurant & Bars</a>
         <a href="#"
             class="font-bold uppercase text-xs tracking-widest text-[#8c7a76] hover:text-[#a67c52] py-2 italic">Activités</a>
-        <a href="/seminaires"
+        <a href="{{ route('seminaires') }}"
             class="font-bold uppercase text-xs tracking-widest text-[#8c7a76] hover:text-[#a67c52] py-2 italic">Événements</a>
-        <a href="/galerie"
+        <a href="{{ route('galerie') }}"
             class="font-bold uppercase text-xs tracking-widest text-[#8c7a76] hover:text-[#a67c52] py-2 italic">Galerie</a>
         <a href="/reservations"
             class="bg-[#a67c52] text-white text-center py-4 rounded font-bold uppercase text-xs tracking-widest shadow">Réserver</a>
