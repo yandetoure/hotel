@@ -163,9 +163,9 @@
         <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');"></div>
         
         <div class="max-w-7xl mx-auto relative z-10">
-            <div class="flex flex-col lg:flex-row gap-16 items-start">
+            <div class="flex flex-col lg:flex-row gap-16 items-stretch">
                 <!-- Text Area -->
-                <div class="lg:w-[40%]">
+                <div class="lg:w-[40%] flex flex-col justify-center">
                     <h2 class="font-serif text-4xl text-[#4a3a35] mb-8">Bienvenue au {{ $hotel['city'] }}</h2>
                     <p class="text-[#8c7a76] leading-relaxed mb-6 font-light">
                         {{ $hotel['description'] }}
@@ -178,17 +178,17 @@
                     </div>
                 </div>
 
-                <!-- Image Collage -->
-                <div class="lg:w-[30%] flex flex-col gap-4">
-                    <img src="{{ $hotel['welcome_images']['main'] }}" class="w-full aspect-[4/5] object-cover rounded-md shadow-lg border-2 border-white/50">
-                    <div class="grid grid-cols-2 gap-4">
+                <!-- Image Collage — height constrained to match text column -->
+                <div class="lg:w-[30%] flex flex-col gap-3 self-stretch">
+                    <img src="{{ $hotel['welcome_images']['main'] }}" class="w-full flex-1 min-h-0 object-cover rounded-md shadow-lg border-2 border-white/50">
+                    <div class="grid grid-cols-2 gap-3">
                         <img src="{{ $hotel['welcome_images']['small1'] }}" class="w-full aspect-square object-cover rounded-md shadow-md">
                         <img src="{{ $hotel['welcome_images']['small2'] }}" class="w-full aspect-square object-cover rounded-md shadow-md">
                     </div>
                 </div>
 
                 <!-- Features List -->
-                <div class="lg:w-[30%] space-y-6 lg:pt-12">
+                <div class="lg:w-[30%] space-y-6 flex flex-col justify-center">
                     @foreach($hotel['features'] as $feature)
                         <div class="flex items-center gap-4 group">
                             <div class="w-10 h-[1px] bg-[#a67c52] group-hover:w-16 transition-all duration-500"></div>
@@ -198,6 +198,7 @@
                 </div>
             </div>
         </div>
+
     </section>
 
     <!-- Rooms Section -->
