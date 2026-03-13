@@ -246,62 +246,68 @@
         </div>
     </section>
 
-    <!-- Detailed Footer / Info Section -->
-    <footer class="py-20 px-6 bg-[#f2e9e7] border-t border-[#e8dedc]">
+    <!-- Horizontal Branding Footer -->
+    <section class="py-16 px-6 bg-[#f7f1f0] relative overflow-hidden">
+        <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');"></div>
+        
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 items-start">
-                <!-- Brand Info -->
-                <div class="flex items-center gap-6">
-                    <div class="w-24 h-24 rounded-full bg-white flex items-center justify-center border border-[#e8dedc] shadow-sm">
-                        <img src="{{ asset('assets/img/logo.png') }}" class="w-14 h-14 object-contain">
-                    </div>
-                    <div>
-                        <div class="text-[10px] font-bold text-[#b08d57] uppercase tracking-[0.5em] mb-1">Les Hôtels du Sénégal</div>
-                        <div class="text-2xl font-serif text-[#4a3a35]">{{ $hotel['name'] }}</div>
+            <div class="flex flex-col lg:flex-row items-stretch bg-white/40 backdrop-blur-sm border border-[#e8dedc] rounded-lg overflow-hidden shadow-sm">
+                
+                <!-- Left: Branding with BG -->
+                <div class="lg:w-1/3 relative min-h-[160px] flex items-center p-10 overflow-hidden group">
+                    <img src="{{ $hotel['hero_image'] }}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 brightness-[0.7]">
+                    <div class="absolute inset-0 bg-black/20"></div>
+                    <div class="relative z-10 flex items-center gap-5">
+                        <div class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+                            <img src="{{ asset('assets/img/logo.png') }}" class="w-10 h-10 object-contain invert">
+                        </div>
+                        <div class="text-white">
+                            <div class="text-[8px] font-bold uppercase tracking-[0.5em] mb-1 opacity-70">Les Hôtels du Sénégal</div>
+                            <div class="text-3xl font-serif leading-tight drop-shadow-lg">{{ $hotel['name'] }}</div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Stat / Icons -->
-                <div class="grid grid-cols-2 gap-x-8 gap-y-10">
-                    @foreach($hotel['stats'] as $stat)
-                        <div class="flex flex-col items-center text-center">
-                            <span class="text-3xl mb-3 opacity-80">{{ $stat['icon'] }}</span>
-                            <span class="text-[9px] font-bold uppercase tracking-widest text-[#8c7a76]">{{ $stat['label'] }}</span>
+                <!-- Middle: Assets/Services -->
+                <div class="lg:flex-1 grid grid-cols-2 md:grid-cols-4 items-center py-8 lg:py-0">
+                    @foreach($hotel['stats'] as $index => $stat)
+                        <div class="flex flex-col items-center text-center px-4 {{ !$loop->last ? 'md:border-r border-[#e8dedc]' : '' }} group cursor-pointer">
+                            <div class="text-3xl mb-3 transition-transform duration-500 group-hover:scale-110 opacity-60">{{ $stat['icon'] }}</div>
+                            <div class="text-[9px] font-bold uppercase tracking-widest text-[#8c7a76] leading-[1.4]">{{ $stat['label'] }}</div>
                         </div>
                     @endforeach
                 </div>
 
-                <!-- Contact & Payments -->
-                <div class="bg-white/40 backdrop-blur-sm rounded-2xl p-8 border border-[#e8dedc]">
-                    <div class="flex items-center gap-3 mb-6">
-                        <span class="material-symbols-outlined text-[#a67c52] text-lg">location_on</span>
-                        <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-[#4a3a35]">Teranguest</span>
+                <!-- Right: Contact & Partners -->
+                <div class="lg:w-[30%] p-8 flex flex-col justify-center border-l border-[#e8dedc] bg-[#fffbf9]/50">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="material-symbols-outlined text-[#a67c52] text-xl">location_on</span>
+                        <span class="text-sm font-bold uppercase tracking-[0.2em] text-[#4a3a35]">Teranguest</span>
                     </div>
                     
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-center gap-3 text-sm text-[#4a3a35]">
+                    <div class="space-y-2 mb-6">
+                        <div class="flex items-center gap-3 text-[13px] text-[#4a3a35]">
                             <span class="material-symbols-outlined text-[#a67c52] text-sm">call</span>
                             <span class="font-light">+221 78 600 77 88</span>
                         </div>
-                        <div class="flex items-center gap-3 text-sm text-[#4a3a35]">
+                        <div class="flex items-center gap-3 text-[13px] text-[#4a3a35]">
                             <span class="material-symbols-outlined text-[#a67c52] text-sm">mail</span>
-                            <span class="font-light">info@leshotelsdusenegal.com</span>
+                            <span class="font-light truncate">info@leshotelsdusenegal.com</span>
                         </div>
                     </div>
 
-                    <div class="flex flex-wrap gap-4 items-center opacity-70 border-t border-[#e8dedc] pt-6">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" class="h-6">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" class="h-3">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-4">
+                    <div class="flex items-center gap-4 opacity-70 border-t border-[#e8dedc] pt-5">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" class="h-2">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" class="h-5">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-3">
                     </div>
                 </div>
             </div>
 
-            <div class="mt-20 pt-8 border-t border-[#e8dedc] flex flex-col md:flex-row justify-between items-center gap-6">
-                <p class="text-[9px] text-[#8c7a76] uppercase tracking-widest opacity-60">© {{ date('Y') }}. Les Hôtels du Sénégal . Tous droits réservés.</p>
-                <div class="text-[9px] text-[#8c7a76] uppercase tracking-widest opacity-60">Designed with 🧡 by LabelDigital</div>
+            <div class="mt-12 text-center text-[9px] text-[#8c7a76] uppercase tracking-[0.3em] opacity-40">
+                © {{ date('Y') }}. Les Hôtels du Sénégal . Tous droits réservés. Designed with 🧡 by LabelDigital
             </div>
         </div>
-    </footer>
+    </section>
 
 </x-hotel-layout>
