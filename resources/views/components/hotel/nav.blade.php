@@ -22,15 +22,15 @@
             <a href="/"
                 class="text-xs uppercase tracking-widest font-bold transition-all duration-300 hover:text-accent-gold text-white drop-shadow-md">Accueil</a>
             <a href="/hotels"
-                class="text-xs uppercase tracking-widest font-bold transition-all duration-300 hover:text-accent-gold text-white drop-shadow-md">Hôtels</a>
-            <a href="/offres"
-                class="text-xs uppercase tracking-widest font-bold transition-all duration-300 hover:text-accent-gold text-white drop-shadow-md">Offres</a>
+                class="text-xs uppercase tracking-widest font-bold transition-all duration-300 hover:text-accent-gold text-white drop-shadow-md">Chambres & Suites</a>
+            <a href="#"
+                class="text-xs uppercase tracking-widest font-bold transition-all duration-300 hover:text-accent-gold text-white drop-shadow-md">Restaurant & Bars</a>
+            <a href="#"
+                class="text-xs uppercase tracking-widest font-bold transition-all duration-300 hover:text-accent-gold text-white drop-shadow-md">Activités</a>
             <a href="/seminaires"
-                class="text-xs uppercase tracking-widest font-bold transition-all duration-300 hover:text-accent-gold text-white drop-shadow-md">Séminaires</a>
+                class="text-xs uppercase tracking-widest font-bold transition-all duration-300 hover:text-accent-gold text-white drop-shadow-md">Événements</a>
             <a href="/galerie"
                 class="text-xs uppercase tracking-widest font-bold transition-all duration-300 hover:text-accent-gold text-white drop-shadow-md">Galerie</a>
-            <a href="/contact"
-                class="text-xs uppercase tracking-widest font-bold transition-all duration-300 hover:text-accent-gold text-white drop-shadow-md">Contact</a>
 
             <a href="/reservations"
                 class="bg-primary-ochre text-white px-8 py-3 rounded-md text-xs uppercase tracking-widest font-bold hover:bg-accent-gold transition-all shadow-lg active:scale-95">
@@ -62,15 +62,15 @@
         <a href="/"
             class="font-bold uppercase text-xs tracking-widest text-white hover:text-accent-gold py-2">Accueil</a>
         <a href="/hotels"
-            class="font-bold uppercase text-xs tracking-widest text-white hover:text-accent-gold py-2">Hôtels</a>
-        <a href="/offres"
-            class="font-bold uppercase text-xs tracking-widest text-white hover:text-accent-gold py-2">Offres</a>
+            class="font-bold uppercase text-xs tracking-widest text-white hover:text-accent-gold py-2">Chambres & Suites</a>
+        <a href="#"
+            class="font-bold uppercase text-xs tracking-widest text-white hover:text-accent-gold py-2">Restaurant & Bars</a>
+        <a href="#"
+            class="font-bold uppercase text-xs tracking-widest text-white hover:text-accent-gold py-2">Activités</a>
         <a href="/seminaires"
-            class="font-bold uppercase text-xs tracking-widest text-white hover:text-accent-gold py-2">Séminaires</a>
+            class="font-bold uppercase text-xs tracking-widest text-white hover:text-accent-gold py-2">Événements</a>
         <a href="/galerie"
             class="font-bold uppercase text-xs tracking-widest text-white hover:text-accent-gold py-2">Galerie</a>
-        <a href="/contact"
-            class="font-bold uppercase text-xs tracking-widest text-white hover:text-accent-gold py-2">Contact</a>
         <a href="/reservations"
             class="bg-primary-ochre text-white text-center py-4 rounded-md font-bold uppercase text-xs tracking-widest shadow-lg">Réserver
             maintenant</a>
