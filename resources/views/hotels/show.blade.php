@@ -179,11 +179,11 @@
                 </div>
 
                 <!-- Image Collage — height constrained to match text column -->
-                <div class="lg:w-[30%] flex flex-col gap-3 self-stretch">
-                    <img src="{{ $hotel['welcome_images']['main'] }}" class="w-full flex-1 min-h-0 object-cover rounded-md shadow-lg border-2 border-white/50">
+                <div class="lg:w-[30%] flex flex-col gap-3 self-stretch max-h-[260px]">
+                    <img src="{{ $hotel['welcome_images']['main'] }}" class="w-full h-32 object-cover rounded-md shadow-lg border-2 border-white/50">
                     <div class="grid grid-cols-2 gap-3">
-                        <img src="{{ $hotel['welcome_images']['small1'] }}" class="w-full aspect-square object-cover rounded-md shadow-md">
-                        <img src="{{ $hotel['welcome_images']['small2'] }}" class="w-full aspect-square object-cover rounded-md shadow-md">
+                        <img src="{{ $hotel['welcome_images']['small1'] }}" class="w-full h-16 object-cover rounded-md shadow-md">
+                        <img src="{{ $hotel['welcome_images']['small2'] }}" class="w-full h-16 object-cover rounded-md shadow-md">
                     </div>
                 </div>
 
