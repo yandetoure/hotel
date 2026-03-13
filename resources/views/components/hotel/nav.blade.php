@@ -17,7 +17,7 @@
                 class="text-[11px] font-bold uppercase tracking-widest text-[#8c7a76] hover:text-[#a67c52] transition-colors italic">Accueil</a>
             <a href="{{ route('hotels.index') }}"
                 class="text-[11px] font-bold uppercase tracking-widest text-[#8c7a76] hover:text-[#a67c52] transition-colors italic">Chambres & Suites</a>
-            <a href="#"
+            <a href="{{ route('restaurants') }}"
                 class="text-[11px] font-bold uppercase tracking-widest text-[#8c7a76] hover:text-[#a67c52] transition-colors italic">Restaurant & Bars</a>
             <a href="#"
                 class="text-[11px] font-bold uppercase tracking-widest text-[#8c7a76] hover:text-[#a67c52] transition-colors italic">Activités</a>
