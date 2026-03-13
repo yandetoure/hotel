@@ -24,10 +24,8 @@
             <div class="glass p-6 md:p-8 rounded-2xl shadow-2xl">
                 <form action="/reservations" class="grid grid-cols-1 md:grid-cols-12 gap-x-4 gap-y-6 items-end">
                     <div class="md:col-span-3 space-y-2">
-                        <label
-                            class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Destination</label>
-                        <select name="hotel"
-                            class="w-full bg-white/50 border-none rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary-ochre transition-all">
+                        <label class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Destination</label>
+                        <select name="hotel" class="w-full bg-white/50 border-none rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary-ochre transition-all">
                             <option value="">Choisir un hôtel</option>
                             <option value="pelican">Pélican du Saloum</option>
                             <option value="nema">Néma Kadior</option>
@@ -35,36 +33,26 @@
                         </select>
                     </div>
                     <div class="md:col-span-2 space-y-2">
-                        <label
-                            class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Arrivée</label>
-                        <input type="date"
-                            class="w-full bg-white/50 border-none rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary-ochre transition-all">
+                        <label class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Arrivée</label>
+                        <input type="date" class="w-full bg-white/50 border-none rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary-ochre transition-all">
                     </div>
                     <div class="md:col-span-2 space-y-2">
-                        <label
-                            class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Départ</label>
-                        <input type="date"
-                            class="w-full bg-white/50 border-none rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary-ochre transition-all">
+                        <label class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Départ</label>
+                        <input type="date" class="w-full bg-white/50 border-none rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary-ochre transition-all">
                     </div>
                     <div class="md:col-span-2 space-y-2">
-                        <label
-                            class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Adultes</label>
-                        <select
-                            class="w-full bg-white/50 border-none rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary-ochre transition-all">
+                        <label class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Adultes</label>
+                        <select class="w-full bg-white/50 border-none rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary-ochre transition-all">
                             <option>1 Adulte</option>
                             <option selected>2 Adultes</option>
                             <option>3 Adultes</option>
-                            <option>4 Adultes</option>
                         </select>
                     </div>
                     <div class="md:col-span-1 space-y-2">
-                        <label
-                            class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Enfants</label>
-                        <select
-                            class="w-full bg-white/50 border-none rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary-ochre transition-all">
+                        <label class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Enfants</label>
+                        <select class="w-full bg-white/50 border-none rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary-ochre transition-all">
                             <option>0 Enfant</option>
                             <option>1 Enfant</option>
-                            <option>2 Enfants</option>
                         </select>
                     </div>
                     <div class="md:col-span-2">
@@ -76,185 +64,172 @@
     </section>
 
     <!-- Destinations Section -->
-    <section class="py-24 px-6 bg-sand-light" id="destinations">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
-                <div>
-                    <h4 class="text-primary-ochre font-bold uppercase tracking-widest text-sm mb-2">Nos Destinations
-                    </h4>
-                    <h2 class="font-serif text-4xl md:text-5xl text-primary-blue section-title">Explorez le Sénégal</h2>
-                </div>
-                <a href="/hotels"
-                    class="text-primary-ochre font-bold hover:text-accent-gold transition-colors underline decoration-2 underline-offset-8">Voir
-                    tout</a>
+    <section class="py-24 px-6 bg-[#f7f1f0] relative" id="destinations">
+        <!-- Background Texture Overlay -->
+        <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl text-[#4a3a35] mb-4">Trois destinations de rêve au Sénégal</h2>
+                <p class="text-[#8c7a76] text-lg md:text-xl font-light">Trois hôtels d'exception pour des séjours mémorables sous le soleil africain.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <!-- Pelican -->
-                <div class="group cursor-pointer">
-                    <div class="relative overflow-hidden rounded-2xl aspect-[4/5] mb-6 shadow-lg">
-                        <img src="{{ asset('assets/img/pelican.png') }}" alt="Pélican du Saloum"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 transition-opacity group-hover:opacity-80">
-                        </div>
-                        <div class="absolute bottom-6 left-6 text-white">
-                            <h3 class="font-serif text-2xl mb-1">Pélican du Saloum</h3>
-                            <p class="text-sm opacity-90">Nature & évasion</p>
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Royal Saly -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm border border-[#e8dedc] group">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <img src="{{ asset('assets/img/royal.png') }}" alt="Le Royal Saly" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     </div>
-                    <a href="/hotel/pelican-du-saloum" class="btn-premium w-full text-center">Découvrir</a>
+                    <div class="p-8 text-center bg-[#fffbf9]">
+                        <h3 class="font-serif text-2xl text-[#4a3a35] uppercase tracking-wider mb-1">Le Royal Saly</h3>
+                        <div class="text-[#b08d57] text-[10px] font-bold uppercase tracking-[0.3em] mb-6">Saly</div>
+                        <p class="text-[#8c7a76] text-sm leading-relaxed mb-8 px-4">Un hôtel balnéaire de charme à Saly, avec piscines, plage privée et nombreuses activités nautiques.</p>
+                        <a href="/hotel/royal-saly" class="inline-block px-10 py-3 bg-[#a67c52] text-white text-[11px] font-bold uppercase tracking-widest rounded shadow-md hover:bg-[#8c6542] transition-all">
+                            Découvrir <span class="ml-1 opacity-70">›</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Pelican -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm border border-[#e8dedc] group">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <img src="{{ asset('assets/img/pelican.png') }}" alt="Le Pélican du Saloum" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 text-center bg-[#fffbf9]">
+                        <h3 class="font-serif text-2xl text-[#4a3a35] tracking-wider mb-1">Le Pélican du Saloum</h3>
+                        <div class="text-[#b08d57] text-[10px] font-bold uppercase tracking-[0.3em] mb-6">Toubacouta</div>
+                        <p class="text-[#8c7a76] text-sm leading-relaxed mb-8 px-4">Un lodge au cœur du delta du Saloum, idéal pour les amateurs d'écotourisme et de nature.</p>
+                        <a href="/hotel/pelican-du-saloum" class="inline-block px-10 py-3 bg-[#a67c52] text-white text-[11px] font-bold uppercase tracking-widest rounded shadow-md hover:bg-[#8c6542] transition-all">
+                            Découvrir <span class="ml-1 opacity-70">›</span>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Nema Kadior -->
-                <div class="group cursor-pointer">
-                    <div class="relative overflow-hidden rounded-2xl aspect-[4/5] mb-6 shadow-lg">
-                        <img src="{{ asset('assets/img/nema.png') }}" alt="Néma Kadior"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 transition-opacity group-hover:opacity-80">
-                        </div>
-                        <div class="absolute bottom-6 left-6 text-white">
-                            <h3 class="font-serif text-2xl mb-1">Néma Kadior</h3>
-                            <p class="text-sm opacity-90">Authenticité de la Casamance</p>
-                        </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm border border-[#e8dedc] group">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <img src="{{ asset('assets/img/nema.png') }}" alt="Le Nema Kadior" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     </div>
-                    <a href="/hotel/nema-kadior" class="btn-premium w-full text-center">Découvrir</a>
-                </div>
-
-                <!-- Royal Saly -->
-                <div class="group cursor-pointer">
-                    <div class="relative overflow-hidden rounded-2xl aspect-[4/5] mb-6 shadow-lg">
-                        <img src="{{ asset('assets/img/royal.png') }}" alt="Royal Saly"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 transition-opacity group-hover:opacity-80">
-                        </div>
-                        <div class="absolute bottom-6 left-6 text-white">
-                            <h3 class="font-serif text-2xl mb-1">Royal Saly</h3>
-                            <p class="text-sm opacity-90">Plage & resort</p>
-                        </div>
+                    <div class="p-8 text-center bg-[#fffbf9]">
+                        <h3 class="font-serif text-2xl text-[#4a3a35] tracking-wider mb-1">Le Nema Kadior</h3>
+                        <div class="text-[#b08d57] text-[10px] font-bold uppercase tracking-[0.3em] mb-6">Casamance</div>
+                        <p class="text-[#8c7a76] text-sm leading-relaxed mb-8 px-4">Un hôtel au bord du fleuve dans un écrin de verdure, offrant détente et immersion culturelle en Casamance.</p>
+                        <a href="/hotel/nema-kadior" class="inline-block px-10 py-3 bg-[#a67c52] text-white text-[11px] font-bold uppercase tracking-widest rounded shadow-md hover:bg-[#8c6542] transition-all">
+                            Découvrir <span class="ml-1 opacity-70">›</span>
+                        </a>
                     </div>
-                    <a href="/hotel/royal-saly" class="btn-premium w-full text-center">Découvrir</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="py-24 px-6 bg-primary-blue text-white overflow-hidden relative">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-accent-gold/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-primary-ochre/5 rounded-full -ml-48 -mb-48 blur-3xl"></div>
-
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="text-center mb-16">
-                <h4 class="text-accent-gold font-bold uppercase tracking-widest text-sm mb-2">Art de vivre</h4>
-                <h2 class="font-serif text-4xl md:text-5xl mb-6">Nos Services d'Exception</h2>
-                <div class="w-20 h-1 bg-accent-gold mx-auto"></div>
+    <section class="py-24 px-6 bg-[#f2e9e7] relative">
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#e0d0cc] to-transparent"></div>
+        <div class="max-w-7xl mx-auto relative">
+            <div class="text-center mb-16 flex flex-col items-center">
+                <div class="w-16 h-px bg-[#a67c52] mb-4 opacity-50"></div>
+                <h2 class="font-serif text-4xl text-[#4a3a35]">Nos Services</h2>
+                <div class="w-12 h-px bg-[#a67c52] mt-4 opacity-50"></div>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-                @php
-                    $services = [
-                        ['icon' => 'pool', 'label' => 'Piscines'],
-                        ['icon' => 'restaurant', 'label' => 'Restaurants'],
-                        ['icon' => 'sailing', 'label' => 'Excursions'],
-                        ['icon' => 'groups', 'label' => 'Séminaires'],
-                        ['icon' => 'wifi', 'label' => 'Wi-Fi'],
-                        ['icon' => 'celebration', 'label' => 'Activités'],
-                    ];
-                @endphp
-                @foreach($services as $service)
-                    <div class="flex flex-col items-center p-8 service-card rounded-2xl cursor-default group">
-                        <span class="material-symbols-outlined service-icon">
-                            {{ $service['icon'] }}
-                        </span>
-                        <span class="service-label">{{ $service['label'] }}</span>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white/60 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-white/50 transition-all">
+                    <div class="p-6 pb-0 flex items-center gap-3">
+                        <span class="text-[#a67c52] text-2xl">🚐</span>
+                        <h3 class="font-serif text-xl text-[#4a3a35]">Navette Aéroport</h3>
                     </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    <!-- Offres Section -->
-    <section class="py-24 px-6 bg-white overflow-hidden">
-        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
-            <div class="lg:w-1/2">
-                <h4 class="text-primary-ochre font-bold uppercase tracking-widest text-sm mb-2">Exclusivités</h4>
-                <h2 class="font-serif text-4xl md:text-5xl text-primary-blue mb-8">Offres Spéciales</h2>
-
-                <div class="space-y-6 mb-10">
-                    <div
-                        class="flex items-start space-x-4 p-4 rounded-xl hover:bg-sand-light transition-colors border-l-4 border-accent-gold">
-                        <div class="flex-shrink-0 text-2xl">🥂</div>
-                        <div>
-                            <h4 class="font-bold text-primary-blue text-lg">Weekend détente</h4>
-                            <p class="text-gray-500 text-sm">Profitez d'une évasion relaxante avec spa et dîner
-                                gastronomique.</p>
-                        </div>
+                    <div class="aspect-video mt-4 overflow-hidden mx-6 rounded-lg">
+                        <img src="{{ asset('assets/img/hero.png') }}" class="w-full h-full object-cover opacity-80 brightness-90">
                     </div>
-                    <div class="flex items-start space-x-4 p-4 rounded-xl hover:bg-sand-light transition-colors">
-                        <div class="flex-shrink-0 text-2xl">👨‍👩-👧‍👦</div>
-                        <div>
-                            <h4 class="font-bold text-primary-blue text-lg">Séjour famille</h4>
-                            <p class="text-gray-500 text-sm">Des activités pour tous les âges et des chambres
-                                communicantes.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start space-x-4 p-4 rounded-xl hover:bg-sand-light transition-colors">
-                        <div class="flex-shrink-0 text-2xl">💍</div>
-                        <div>
-                            <h4 class="font-bold text-primary-blue text-lg">Lune de miel</h4>
-                            <p class="text-gray-500 text-sm">Un cadre romantique inoubliable pour célébrer votre union.
-                            </p>
-                        </div>
+                    <div class="p-8 text-center">
+                        <p class="text-[#8c7a76] text-sm leading-relaxed mb-8">Profitez d'une remise de 20% sur votre séjour hors vacances scolaires. Offre valable du 1er mai au 30 juin.</p>
+                        <a href="#" class="inline-block px-10 py-3 bg-[#a67c52] text-white text-[10px] font-black uppercase tracking-[0.2em] rounded hover:bg-[#8c6542] transition-all">
+                            Voir l'Offre
+                        </a>
                     </div>
                 </div>
 
-                <a href="#" class="btn-premium">VOIR TOUTES LES OFFRES</a>
-            </div>
-
-            <div class="lg:w-1/2 relative">
-                <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
-                    <img src="{{ asset('assets/img/hero.png') }}" alt="Special Offers"
-                        class="w-full grayscale-[0.3] hover:grayscale-0 transition-all duration-700">
+                <!-- Service 2 -->
+                <div class="bg-white/60 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-white/50 transition-all">
+                    <div class="p-6 pb-0 flex items-center gap-3">
+                        <span class="text-[#a67c52] text-2xl">🥐</span>
+                        <h3 class="font-serif text-xl text-[#4a3a35]">Petit Déjeuner Buffet</h3>
+                    </div>
+                    <div class="aspect-video mt-4 overflow-hidden mx-6 rounded-lg">
+                        <img src="{{ asset('assets/img/hero.png') }}" class="w-full h-full object-cover opacity-80 brightness-90">
+                    </div>
+                    <div class="p-8 text-center">
+                        <p class="text-[#8c7a76] text-sm leading-relaxed mb-8">Un accueil romantique avec champagne, dîner aux chandelles et soins au spa pour une lune de miel inoubliable.</p>
+                        <a href="#" class="inline-block px-10 py-3 bg-[#a67c52] text-white text-[10px] font-black uppercase tracking-[0.2em] rounded hover:bg-[#8c6542] transition-all">
+                            Voir l'Offre
+                        </a>
+                    </div>
                 </div>
-                <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-accent-gold rounded-2xl -z-0 opacity-20"></div>
-                <div class="absolute -top-6 -left-6 w-48 h-48 bg-primary-blue rounded-2xl -z-0 opacity-10"></div>
+
+                <!-- Service 3 -->
+                <div class="bg-white/60 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-white/50 transition-all">
+                    <div class="p-6 pb-0 flex items-center gap-3">
+                        <span class="text-[#a67c52] text-2xl">🌴</span>
+                        <h3 class="font-serif text-xl text-[#4a3a35]">Activités & Excursions</h3>
+                    </div>
+                    <div class="aspect-video mt-4 overflow-hidden mx-6 rounded-lg">
+                        <img src="{{ asset('assets/img/hero.png') }}" class="w-full h-full object-cover opacity-80 brightness-90">
+                    </div>
+                    <div class="p-8 text-center">
+                        <p class="text-[#8c7a76] text-sm leading-relaxed mb-8">Restez 7 nuits ou plus et bénéficiez de 1 nuit offerte, idéal pour profiter pleinement de nos paradis tropicaux.</p>
+                        <a href="#" class="inline-block px-10 py-3 bg-[#a67c52] text-white text-[10px] font-black uppercase tracking-[0.2em] rounded hover:bg-[#8c6542] transition-all">
+                            Voir l'Offre
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Avis Clients -->
-    <section class="py-24 px-6 bg-sand-light overflow-hidden">
-        <div class="max-w-4xl mx-auto text-center">
-            <h4 class="text-primary-ochre font-bold uppercase tracking-widest text-sm mb-12">Ce que nos clients disent
-            </h4>
-            <div class="mb-8">
-                <span class="text-accent-gold text-4xl">★★★★★</span>
-            </div>
-            <blockquote class="font-serif text-3xl md:text-4xl text-primary-blue italic mb-10 leading-relaxed">
-                "Une expérience absolument magnifique au Sénégal. Le service est impeccable, les paysages sont à couper
-                le souffle et l'authenticité est au rendez-vous. Nous reviendrons sans hésiter."
-            </blockquote>
-            <cite class="not-italic font-bold text-primary-blue uppercase tracking-widest text-sm">— Jean & Marie,
-                Voyageurs Passionnés</cite>
-        </div>
-    </section>
+    <!-- Branding & Partner Section -->
+    <section class="py-12 px-6 bg-[#f7f1f0] border-t border-[#e8dedc]">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+                <!-- Branding -->
+                <div class="flex items-center gap-6 group cursor-pointer">
+                    <div class="w-20 h-20 rounded-full bg-white flex items-center justify-center border border-[#e8dedc] group-hover:bg-[#a67c52] transition-all duration-500">
+                        <img src="{{ asset('assets/img/logo.png') }}" class="w-12 h-12 object-contain group-hover:invert transition-all">
+                    </div>
+                    <div>
+                        <div class="text-[9px] font-bold text-[#b08d57] uppercase tracking-[0.4em] mb-1">Les Hôtels</div>
+                        <div class="text-xl font-serif text-[#4a3a35] group-hover:text-[#a67c52] transition-colors">Le Royal Saly</div>
+                    </div>
+                </div>
 
-    <!-- Call to action -->
-    <section class="py-24 px-6 bg-primary-ochre relative overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-black/20"></div>
-        </div>
-        <div class="max-w-4xl mx-auto text-center relative z-10 text-white">
-            <h2 class="font-serif text-4xl md:text-6xl mb-10 leading-tight">Prêt pour votre prochaine aventure ?</h2>
-            <p class="text-xl mb-12 opacity-90">Réservez votre séjour dès maintenant et vivez une expérience
-                d'exception.</p>
-            <a href="/reservations"
-                class="inline-block bg-white text-primary-ochre px-12 py-5 rounded-lg font-bold text-lg hover:bg-accent-gold hover:text-white transition-all shadow-xl hover:-translate-y-1">
-                RÉSERVER MAINTENANT
-            </a>
+                <!-- Hotel Badge -->
+                <div class="relative h-24 overflow-hidden rounded-xl group">
+                    <img src="{{ asset('assets/img/pelican.png') }}" class="w-full h-full object-cover brightness-75 group-hover:brightness-90 transition-all">
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-white">
+                        <img src="{{ asset('assets/img/logo.png') }}" class="w-8 h-8 invert mb-2">
+                        <div class="text-lg font-serif">Le Pélican du Saloum</div>
+                        <div class="text-[8px] uppercase tracking-widest opacity-80">Toubacouta</div>
+                    </div>
+                </div>
+
+                <!-- Partners/Payment -->
+                <div class="bg-white/50 rounded-xl p-6 border border-[#e8dedc]">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="material-symbols-outlined text-[#a67c52] text-sm">location_on</span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-[#4a3a35]">Teranguest</span>
+                    </div>
+                    <div class="flex flex-wrap gap-3 items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" class="h-6">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" class="h-3">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-[9px] font-bold uppercase tracking-[0.3em] text-[#8c7a76] opacity-50">WIEFC . CREA 77227-BRULAN</p>
+            </div>
         </div>
     </section>
 

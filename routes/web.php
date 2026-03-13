@@ -29,7 +29,11 @@ Volt::route('book', 'booking.pages.create')
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Volt::route('dashboard', 'admin.dashboard')->name('admin.dashboard');
-    Volt::route('rooms', 'admin.rooms.index')->name('admin.rooms');
+    // Room Management
+    Route::get('rooms', [App\Http\Controllers\Admin\RoomController::class, 'index'])->name('admin.rooms');
+    Route::post('rooms', [App\Http\Controllers\Admin\RoomController::class, 'store'])->name('admin.rooms.store');
+    Route::put('rooms/{room}', [App\Http\Controllers\Admin\RoomController::class, 'update'])->name('admin.rooms.update');
+    Route::delete('rooms/{room}', [App\Http\Controllers\Admin\RoomController::class, 'destroy'])->name('admin.rooms.destroy');
     
     // Gallery Management
     Route::get('gallery', [App\Http\Controllers\Admin\GalleryController::class, 'index'])->name('admin.gallery');
