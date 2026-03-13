@@ -8,48 +8,7 @@ Route::view('/', 'welcome')->name('home');
 Route::view('/hotels', 'hotels.index')->name('hotels.index');
 Route::view('/offres', 'offres')->name('offres');
 Route::view('/seminaires', 'seminaires')->name('seminaires');
-Route::get('/galerie', function () {
-    $hotels = [
-        'Royal Saly' => 'Royal saly',
-        'Nema' => 'nema',
-        'Pelican' => 'pellican'
-    ];
-
-    $gallery = [];
-    foreach ($hotels as $displayName => $folderName) {
-        $path = public_path('assets/img/' . $folderName);
-        if (file_exists($path)) {
-            $allFiles = array_filter(scandir($path), function ($file) use ($path) {
-                return !is_dir($path . '/' . $file) && in_array(strtolower(pathinfo($file, PATHINFO_EXTENSION)), ['jpg', 'jpeg', 'png', 'webp', 'gif']);
-            });
-
-            // Group files to find high-res vs thumbnails
-            $files = [];
-            foreach ($allFiles as $file) {
-                $info = pathinfo($file);
-                $name = $info['filename'];
-                $ext = $info['extension'];
-
-                // If it's a thumbnail, check if we already added a high-res version
-                if (str_ends_with($name, '-th')) {
-                    $baseName = substr($name, 0, -3);
-                    $highResFile = $baseName . '.' . $ext;
-                    if (in_array($highResFile, $allFiles)) {
-                        continue; // Skip thumbnail if high-res exists
-                    }
-                }
-
-                $files[] = $file;
-            }
-
-            $gallery[$displayName] = array_map(function ($file) use ($folderName) {
-                return 'assets/img/' . $folderName . '/' . $file;
-            }, $files);
-        }
-    }
-
-    return view('gallery', compact('gallery'));
-})->name('gallery');
+Route::get('/galerie', [App\Http\Controllers\Hotel\GalleryController::class, 'index'])->name('galerie');
 Route::view('/contact', 'contact')->name('contact');
 Route::get('/hotel/{slug}', function ($slug) {
     return view('hotels.show', ['slug' => $slug]);
@@ -71,6 +30,12 @@ Volt::route('book', 'booking.pages.create')
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Volt::route('dashboard', 'admin.dashboard')->name('admin.dashboard');
     Volt::route('rooms', 'admin.rooms.index')->name('admin.rooms');
+    
+    // Gallery Management
+    Route::get('gallery', [App\Http\Controllers\Admin\GalleryController::class, 'index'])->name('admin.gallery');
+    Route::post('gallery', [App\Http\Controllers\Admin\GalleryController::class, 'store'])->name('admin.gallery.store');
+    Route::put('gallery/{gallery}', [App\Http\Controllers\Admin\GalleryController::class, 'update'])->name('admin.gallery.update');
+    Route::delete('gallery/{gallery}', [App\Http\Controllers\Admin\GalleryController::class, 'destroy'])->name('admin.gallery.destroy');
 });
 
 require __DIR__ . '/auth.php';

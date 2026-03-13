@@ -20,10 +20,10 @@
         </div>
 
         <!-- Booking Engine Overlay -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 w-full max-w-5xl px-6 z-20">
-            <div class="glass p-8 rounded-2xl shadow-2xl">
-                <form action="/reservations" class="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
-                    <div class="space-y-2">
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 w-full max-w-[1240px] px-6 z-20">
+            <div class="glass p-6 md:p-8 rounded-2xl shadow-2xl">
+                <form action="/reservations" class="grid grid-cols-1 md:grid-cols-12 gap-x-4 gap-y-6 items-end">
+                    <div class="md:col-span-3 space-y-2">
                         <label
                             class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Destination</label>
                         <select name="hotel"
@@ -34,30 +34,40 @@
                             <option value="royal">Royal Saly</option>
                         </select>
                     </div>
-                    <div class="space-y-2">
+                    <div class="md:col-span-2 space-y-2">
                         <label
                             class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Arrivée</label>
                         <input type="date"
                             class="w-full bg-white/50 border-none rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary-ochre transition-all">
                     </div>
-                    <div class="space-y-2">
+                    <div class="md:col-span-2 space-y-2">
                         <label
                             class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Départ</label>
                         <input type="date"
                             class="w-full bg-white/50 border-none rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary-ochre transition-all">
                     </div>
-                    <div class="space-y-2">
+                    <div class="md:col-span-2 space-y-2">
                         <label
-                            class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Personnes</label>
+                            class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Adultes</label>
                         <select
                             class="w-full bg-white/50 border-none rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary-ochre transition-all">
                             <option>1 Adulte</option>
                             <option selected>2 Adultes</option>
                             <option>3 Adultes</option>
-                            <option>Famille</option>
+                            <option>4 Adultes</option>
                         </select>
                     </div>
-                    <div>
+                    <div class="md:col-span-1 space-y-2">
+                        <label
+                            class="block text-xs uppercase tracking-widest font-bold text-primary-blue">Enfants</label>
+                        <select
+                            class="w-full bg-white/50 border-none rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary-ochre transition-all">
+                            <option>0 Enfant</option>
+                            <option>1 Enfant</option>
+                            <option>2 Enfants</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
                         <button type="submit" class="w-full btn-premium py-4">RECHERCHER</button>
                     </div>
                 </form>

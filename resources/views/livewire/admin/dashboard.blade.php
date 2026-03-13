@@ -43,6 +43,11 @@ state([
                         <div class="font-bold text-sm">Gérer les Chambres</div>
                         <div class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Disponibilité & Types</div>
                     </a>
+                    <a href="{{ route('admin.gallery') }}" wire:navigate class="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-amber-500/50 hover:bg-amber-500/5 transition-all group">
+                        <div class="text-2xl mb-2">🖼️</div>
+                        <div class="font-bold text-sm">Galerie</div>
+                        <div class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Gérer les photos</div>
+                    </a>
                     <div class="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-amber-500/50 hover:bg-amber-500/5 transition-all group cursor-not-allowed opacity-50">
                         <div class="text-2xl mb-2">📝</div>
                         <div class="font-bold text-sm">Réservations</div>
