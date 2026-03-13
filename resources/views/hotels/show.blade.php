@@ -117,31 +117,7 @@
 <x-hotel-layout>
     @section('title', $hotel['name'] . ' - Les Hôtels du Sénégal Group')
 
-    <!-- Local Navigation Header -->
-    <nav class="sticky top-0 z-[100] bg-white border-b border-[#e8dedc] py-4 px-6 shadow-sm">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <div class="flex items-center gap-4">
-                <img src="{{ asset('assets/img/logo.png') }}" class="w-10 h-10 object-contain">
-                <div class="font-serif text-xl tracking-wide text-[#4a3a35]">{{ $hotel['name'] }}</div>
-            </div>
-            <div class="hidden md:flex items-center gap-8">
-                <a href="{{ route('home') }}" class="text-[11px] font-bold uppercase tracking-widest text-[#8c7a76] hover:text-[#a67c52] transition-colors relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-px after:bg-[#a67c52] after:opacity-0 hover:after:opacity-100 italic">Accueil</a>
-                <a href="#chambres" class="text-[11px] font-bold uppercase tracking-widest text-[#8c7a76] hover:text-[#a67c52] transition-colors italic">Chambres & Suites</a>
-                <a href="#services" class="text-[11px] font-bold uppercase tracking-widest text-[#8c7a76] hover:text-[#a67c52] transition-colors italic">Restaurant & Bars</a>
-                <a href="#" class="text-[11px] font-bold uppercase tracking-widest text-[#8c7a76] hover:text-[#a67c52] transition-colors italic">Activités</a>
-                <a href="#" class="text-[11px] font-bold uppercase tracking-widest text-[#8c7a76] hover:text-[#a67c52] transition-colors italic">Événements</a>
-                <a href="{{ route('galerie') }}" class="text-[11px] font-bold uppercase tracking-widest text-[#8c7a76] hover:text-[#a67c52] transition-colors italic">Galerie</a>
-            </div>
-            <div class="flex items-center gap-4">
-                <div class="text-[9px] font-bold text-[#b08d57] uppercase tracking-widest border-r border-[#e8dedc] pr-4 flex items-center gap-1">
-                    FR <span class="material-symbols-outlined text-[12px]">expand_more</span>
-                </div>
-                <button class="md:hidden">
-                    <span class="material-symbols-outlined text-[#4a3a35]">menu</span>
-                </button>
-            </div>
-        </div>
-    </nav>
+
 
     <!-- Hero Section -->
     <section class="relative h-[85vh] overflow-hidden">

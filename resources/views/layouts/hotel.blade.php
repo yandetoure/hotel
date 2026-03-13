@@ -24,7 +24,9 @@
 </head>
 
 <body class="antialiased">
-    <x-hotel.nav />
+    @unless(View::hasSection('hide_global_nav'))
+        <x-hotel.nav />
+    @endunless
 
     <main>
         {{ $slot }}
