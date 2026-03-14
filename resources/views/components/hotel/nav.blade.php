@@ -19,7 +19,7 @@
                 class="text-[11px] font-bold uppercase tracking-widest text-[#8c7a76] hover:text-[#a67c52] transition-colors italic">Chambres & Suites</a>
             <a href="{{ route('restaurants') }}"
                 class="text-[11px] font-bold uppercase tracking-widest text-[#8c7a76] hover:text-[#a67c52] transition-colors italic">Restaurant & Bars</a>
-            <a href="#"
+            <a href="{{ route('activites') }}"
                 class="text-[11px] font-bold uppercase tracking-widest text-[#8c7a76] hover:text-[#a67c52] transition-colors italic">Activités</a>
             <a href="{{ route('seminaires') }}"
                 class="text-[11px] font-bold uppercase tracking-widest text-[#8c7a76] hover:text-[#a67c52] transition-colors italic">Événements</a>
@@ -62,7 +62,7 @@
             class="font-bold uppercase text-xs tracking-widest text-[#8c7a76] hover:text-[#a67c52] py-2 italic">Chambres & Suites</a>
         <a href="#"
             class="font-bold uppercase text-xs tracking-widest text-[#8c7a76] hover:text-[#a67c52] py-2 italic">Restaurant & Bars</a>
-        <a href="#"
+        <a href="{{ route('activites') }}"
             class="font-bold uppercase text-xs tracking-widest text-[#8c7a76] hover:text-[#a67c52] py-2 italic">Activités</a>
         <a href="{{ route('seminaires') }}"
             class="font-bold uppercase text-xs tracking-widest text-[#8c7a76] hover:text-[#a67c52] py-2 italic">Événements</a>

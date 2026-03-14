@@ -9,6 +9,7 @@ Route::view('/hotels', 'hotels.index')->name('hotels.index');
 Route::view('/offres', 'offres')->name('offres');
 Route::view('/seminaires', 'seminaires')->name('seminaires');
 Route::view('/restaurant-bars', 'restaurants')->name('restaurants');
+Route::view('/activites', 'activites')->name('activites');
 Route::get('/galerie', [App\Http\Controllers\Hotel\GalleryController::class, 'index'])->name('galerie');
 Route::view('/contact', 'contact')->name('contact');
 Route::get('/hotel/{slug}', function ($slug) {
