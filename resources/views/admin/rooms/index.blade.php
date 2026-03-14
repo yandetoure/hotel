@@ -12,6 +12,8 @@
         status: 'available',
         form_action: '/admin/rooms',
         method: 'POST',
+        imagePreview: null,
+        currentImage: null,
 
         openCreate() {
             this.editingItem = null;
@@ -20,6 +22,8 @@
             this.status = 'available';
             this.form_action = '/admin/rooms';
             this.method = 'POST';
+            this.imagePreview = null;
+            this.currentImage = null;
             this.showModal = true;
         },
 
@@ -30,7 +34,18 @@
             this.status = room.status;
             this.form_action = `/admin/rooms/${room.id}`;
             this.method = 'PUT';
+            this.imagePreview = null;
+            this.currentImage = room.image ? '/storage/' + room.image : null;
             this.showModal = true;
+        },
+
+        handleImageChange(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => { this.imagePreview = e.target.result; };
+                reader.readAsDataURL(file);
+            }
         }
     }">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -61,6 +76,7 @@
                 <table class="w-full text-left border-collapse">
                     <thead>
                         <tr class="border-b border-white/5 bg-white/5">
+                            <th class="p-8 text-[10px] font-black uppercase tracking-widest text-slate-500">Photo</th>
                             <th class="p-8 text-[10px] font-black uppercase tracking-widest text-slate-500">N° Chambre</th>
                             <th class="p-8 text-[10px] font-black uppercase tracking-widest text-slate-500">Type</th>
                             <th class="p-8 text-[10px] font-black uppercase tracking-widest text-slate-500">Prix / Nuit</th>
@@ -71,6 +87,15 @@
                     <tbody>
                         @foreach($rooms as $room)
                             <tr class="border-b border-white/5 hover:bg-white/[0.02] transition-colors group">
+                                <td class="p-8">
+                                    @if($room->image)
+                                        <img src="{{ asset('storage/' . $room->image) }}" class="w-16 h-14 rounded-xl object-cover border border-white/10">
+                                    @else
+                                        <div class="w-16 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-slate-600 text-2xl">image</span>
+                                        </div>
+                                    @endif
+                                </td>
                                 <td class="p-8">
                                     <span class="font-black text-white text-lg">{{ $room->room_number }}</span>
                                 </td>
@@ -131,7 +156,7 @@
                     <span x-text="editingItem ? 'Modifier' : 'Ajouter'"></span> une <span class="text-gradient">Chambre</span>
                 </h3>
 
-                <form :action="form_action" method="POST" class="space-y-6">
+                <form :action="form_action" method="POST" class="space-y-6" enctype="multipart/form-data">
                     @csrf
                     <template x-if="method === 'PUT'">
                         <input type="hidden" name="_method" value="PUT">
@@ -161,6 +186,26 @@
                             <option value="occupied">Occupée</option>
                             <option value="maintenance">Maintenance</option>
                         </select>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="space-y-3">
+                        <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-4">Photo de la chambre</label>
+
+                        <!-- Prévisualisation -->
+                        <div x-show="imagePreview || currentImage" class="relative w-full h-48 rounded-2xl overflow-hidden border border-white/10">
+                            <img :src="imagePreview || currentImage" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <span class="absolute bottom-3 left-4 text-[10px] font-bold text-white/70 uppercase tracking-widest">Aperçu</span>
+                        </div>
+
+                        <!-- Zone de dépôt -->
+                        <label class="flex flex-col items-center justify-center w-full h-32 rounded-2xl border border-dashed border-white/20 bg-slate-900 hover:border-amber-500/50 hover:bg-amber-500/5 transition-all cursor-pointer">
+                            <input type="file" name="image" accept="image/*" class="hidden" @change="handleImageChange($event)">
+                            <span class="material-symbols-outlined text-3xl text-slate-600 mb-2">add_photo_alternate</span>
+                            <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Cliquer pour choisir une image</span>
+                            <span class="text-[9px] text-slate-600 mt-1">JPEG, PNG, WEBP — max 4 Mo</span>
+                        </label>
                     </div>
 
                     <div class="pt-4">

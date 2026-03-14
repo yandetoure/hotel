@@ -37,6 +37,9 @@ new class extends Component {
                         <x-nav-link :href="route('admin.rooms')" :active="request()->routeIs('admin.rooms')" wire:navigate>
                             {{ __('Chambres') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('admin.room-types')" :active="request()->routeIs('admin.room-types')" wire:navigate>
+                            {{ __('Types') }}
+                        </x-nav-link>
                         <x-nav-link :href="route('admin.gallery')" :active="request()->routeIs('admin.gallery')" wire:navigate>
                             {{ __('Galerie') }}
                         </x-nav-link>
@@ -114,6 +117,10 @@ new class extends Component {
                 <x-responsive-nav-link :href="route('admin.rooms')" :active="request()->routeIs('admin.rooms')"
                     wire:navigate>
                     {{ __('Chambres') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.room-types')" :active="request()->routeIs('admin.room-types')"
+                    wire:navigate>
+                    {{ __('Types de Chambres') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('admin.gallery')" :active="request()->routeIs('admin.gallery')"
                     wire:navigate>

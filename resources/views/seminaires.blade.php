@@ -177,38 +177,5 @@ $seminarData = [
         </div>
     </section>
 
-    <!-- Horizontal Branding Footer -->
-    <section class="py-12 border-t border-[#e8dedc] bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-10">
-                <div class="flex items-center gap-6">
-                    <img src="{{ asset('assets/img/logo.png') }}" class="h-14 opacity-90">
-                    <div class="h-10 w-px bg-gray-200 hidden md:block"></div>
-                    <div class="font-serif text-2xl text-[#4a3a35] italic">{{ $seminarData['hotel_name'] }}</div>
-                </div>
-
-                <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
-                    <div class="flex items-center gap-3 text-sm text-[#4a3a35]">
-                        <span class="material-symbols-outlined text-[#a67c52] text-sm">call</span>
-                        <span class="font-light">+221 78 600 77 88</span>
-                    </div>
-                    <div class="flex items-center gap-3 text-sm text-[#4a3a35]">
-                        <span class="material-symbols-outlined text-[#a67c52] text-sm">mail</span>
-                        <span class="font-light">info@leshotelsdusenegal.com</span>
-                    </div>
-                </div>
-
-                <div class="flex items-center gap-4 opacity-50 grayscale hover:grayscale-0 transition-all">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" class="h-2">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" class="h-5">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-3">
-                </div>
-            </div>
-
-            <div class="mt-12 text-center text-[10px] text-[#8c7a76] uppercase tracking-widest opacity-40 italic">
-                © {{ date('Y') }}. Les Hôtels du Sénégal . Tous droits réservés. . Designed with 🧡 by LabelDigital
-            </div>
-        </div>
-    </section>
 
 </x-hotel-layout>

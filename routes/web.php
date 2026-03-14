@@ -42,6 +42,12 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::post('gallery', [App\Http\Controllers\Admin\GalleryController::class, 'store'])->name('admin.gallery.store');
     Route::put('gallery/{gallery}', [App\Http\Controllers\Admin\GalleryController::class, 'update'])->name('admin.gallery.update');
     Route::delete('gallery/{gallery}', [App\Http\Controllers\Admin\GalleryController::class, 'destroy'])->name('admin.gallery.destroy');
+
+    // Room Type Management
+    Route::get('room-types', [App\Http\Controllers\Admin\RoomTypeController::class, 'index'])->name('admin.room-types');
+    Route::post('room-types', [App\Http\Controllers\Admin\RoomTypeController::class, 'store'])->name('admin.room-types.store');
+    Route::put('room-types/{roomType}', [App\Http\Controllers\Admin\RoomTypeController::class, 'update'])->name('admin.room-types.update');
+    Route::delete('room-types/{roomType}', [App\Http\Controllers\Admin\RoomTypeController::class, 'destroy'])->name('admin.room-types.destroy');
 });
 
 require __DIR__ . '/auth.php';
