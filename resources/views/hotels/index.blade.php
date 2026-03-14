@@ -125,10 +125,9 @@
                             <h3 class="font-serif text-2xl text-[#4a3a35] mb-4">{{ $room['name'] }}</h3>
                             <p class="text-[#8c7a76] text-sm leading-relaxed mb-6 flex-grow">{{ $room['description'] }}</p>
                             
-                            <div class="flex flex-col items-center gap-4 mt-auto pt-6 border-t border-[#e8dedc]">
-                                <span class="text-[#a67c52] font-bold text-sm tracking-widest uppercase italic">{{ $room['price'] }}</span>
+                            <div class="mt-auto pt-6 border-t border-[#e8dedc]">
                                 <a href="{{ route('booking.form') }}?room={{ urlencode($room['name']) }}&hotel={{ $room['hotel'] }}" 
-                                   class="inline-block px-10 py-3 bg-transparent border border-[#a67c52] text-[#a67c52] text-[10px] font-bold uppercase tracking-widest rounded hover:bg-[#a67c52] hover:text-white transition-all w-full">
+                                   class="block px-10 py-3 bg-transparent border border-[#a67c52] text-[#a67c52] text-[10px] font-bold uppercase tracking-widest rounded hover:bg-[#a67c52] hover:text-white transition-all w-full">
                                     Réserver
                                 </a>
                             </div>
