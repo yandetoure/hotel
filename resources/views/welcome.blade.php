@@ -124,26 +124,26 @@
     </section>
 
     <!-- Services Section -->
-    <section class="py-24 px-6 bg-[#f7f1f0] relative">
+    <section class="py-16 px-6 bg-[#f7f1f0] relative">
         <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');"></div>
         <div class="max-w-7xl mx-auto relative z-10">
-            <h2 class="font-serif text-5xl text-center text-[#4a3a35] mb-16 italic">Nos Services</h2>
+            <h2 class="font-serif text-4xl text-center text-[#4a3a35] mb-12 italic">Nos Services</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Service 1 -->
                 <div class="bg-white/70 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm border border-[#e8dedc] transition-all hover:-translate-y-1 hover:shadow-md">
-                    <div class="p-6 text-center border-b border-[#e8dedc] relative">
+                    <div class="p-4 text-center border-b border-[#e8dedc] relative">
                         <div class="absolute -top-3 left-1/2 -translate-x-1/2 text-[#a67c52] opacity-40">❧</div>
                         <div class="flex items-center justify-center gap-3">
-                            <span class="text-[#a67c52] text-xl opacity-80">🚐</span>
-                            <h3 class="font-serif text-lg text-[#4a3a35]">Navette Aéroport</h3>
+                            <span class="text-[#a67c52] text-lg opacity-80">🚐</span>
+                            <h3 class="font-serif text-base text-[#4a3a35]">Navette Aéroport</h3>
                         </div>
                     </div>
-                    <div class="aspect-[2/1] overflow-hidden">
+                    <div class="aspect-[21/9] overflow-hidden">
                         <img src="{{ asset('assets/img/hero.png') }}" class="w-full h-full object-cover">
                     </div>
-                    <div class="p-8 text-center bg-white/40">
-                        <p class="text-[#8c7a76] text-[13px] leading-relaxed mb-6 font-light">Profitez d'une remise de 20% sur votre séjour hors vacances scolaires. Offre valable du 1er mai au 30 juin.</p>
+                    <div class="p-6 text-center bg-white/40">
+                        <p class="text-[#8c7a76] text-xs leading-relaxed mb-4 font-light">Profitez d'une remise de 20% sur votre séjour hors vacances scolaires. Offre valable du 1er mai au 30 juin.</p>
                         <a href="#" class="inline-block px-10 py-3 bg-[#a67c52] text-white text-[10px] font-bold uppercase tracking-widest rounded shadow hover:bg-[#8c6542] transition-all">
                             Voir l'Offre
                         </a>
@@ -152,18 +152,18 @@
 
                 <!-- Service 2 -->
                 <div class="bg-white/70 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm border border-[#e8dedc] transition-all hover:-translate-y-1 hover:shadow-md">
-                    <div class="p-6 text-center border-b border-[#e8dedc] relative">
+                    <div class="p-4 text-center border-b border-[#e8dedc] relative">
                         <div class="absolute -top-3 left-1/2 -translate-x-1/2 text-[#a67c52] opacity-40">❧</div>
                         <div class="flex items-center justify-center gap-3">
-                            <span class="text-[#a67c52] text-xl opacity-80">🥐</span>
-                            <h3 class="font-serif text-lg text-[#4a3a35]">Petit Déjeuner Buffet</h3>
+                            <span class="text-[#a67c52] text-lg opacity-80">🥐</span>
+                            <h3 class="font-serif text-base text-[#4a3a35]">Petit Déjeuner Buffet</h3>
                         </div>
                     </div>
-                    <div class="aspect-[2/1] overflow-hidden">
+                    <div class="aspect-[21/9] overflow-hidden">
                         <img src="{{ asset('assets/img/royal.png') }}" class="w-full h-full object-cover">
                     </div>
-                    <div class="p-8 text-center bg-white/40">
-                        <p class="text-[#8c7a76] text-[13px] leading-relaxed mb-6 font-light">Un accueil romantique avec champagne, dîner aux chandelles et soins au spa pour une lune de miel inoubliable.</p>
+                    <div class="p-6 text-center bg-white/40">
+                        <p class="text-[#8c7a76] text-xs leading-relaxed mb-4 font-light">Un accueil romantique avec champagne, dîner aux chandelles et soins au spa pour une lune de miel inoubliable.</p>
                         <a href="#" class="inline-block px-10 py-3 bg-[#a67c52] text-white text-[10px] font-bold uppercase tracking-widest rounded shadow hover:bg-[#8c6542] transition-all">
                             Voir l'Offre
                         </a>
@@ -172,18 +172,18 @@
 
                 <!-- Service 3 -->
                 <div class="bg-white/70 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm border border-[#e8dedc] transition-all hover:-translate-y-1 hover:shadow-md">
-                    <div class="p-6 text-center border-b border-[#e8dedc] relative">
+                    <div class="p-4 text-center border-b border-[#e8dedc] relative">
                         <div class="absolute -top-3 left-1/2 -translate-x-1/2 text-[#a67c52] opacity-40">❧</div>
                         <div class="flex items-center justify-center gap-3">
-                            <span class="text-[#a67c52] text-xl opacity-80">🌴</span>
-                            <h3 class="font-serif text-lg text-[#4a3a35]">Activités & Excursions</h3>
+                            <span class="text-[#a67c52] text-lg opacity-80">🌴</span>
+                            <h3 class="font-serif text-base text-[#4a3a35]">Activités & Excursions</h3>
                         </div>
                     </div>
-                    <div class="aspect-[2/1] overflow-hidden">
+                    <div class="aspect-[21/9] overflow-hidden">
                         <img src="{{ asset('assets/img/pelican.png') }}" class="w-full h-full object-cover">
                     </div>
-                    <div class="p-8 text-center bg-white/40">
-                        <p class="text-[#8c7a76] text-[13px] leading-relaxed mb-6 font-light">Restez 7 nuits ou plus et bénéficiez de 1 nuit offerte, idéal pour profiter pleinement de nos paradis tropicaux.</p>
+                    <div class="p-6 text-center bg-white/40">
+                        <p class="text-[#8c7a76] text-xs leading-relaxed mb-4 font-light">Restez 7 nuits ou plus et bénéficiez de 1 nuit offerte, idéal pour profiter pleinement de nos paradis tropicaux.</p>
                         <a href="#" class="inline-block px-10 py-3 bg-[#a67c52] text-white text-[10px] font-bold uppercase tracking-widest rounded shadow hover:bg-[#8c6542] transition-all">
                             Voir l'Offre
                         </a>
@@ -194,49 +194,51 @@
     </section>
 
     <!-- Branding & Partner Section -->
-    <section class="py-12 px-6 bg-[#f7f1f0] border-t border-[#e8dedc]">
+    <section class="py-4 px-6 bg-[#f7f1f0] border-t border-[#e8dedc]">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-stretch">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-stretch h-20">
                 
                 <!-- Royal Saly Card -->
-                <a href="/hotel/royal-saly" class="relative overflow-hidden group border border-[#e8dedc] hover:shadow-lg transition-all md:col-span-1 min-h-[140px]">
+                <a href="/hotel/royal-saly" class="relative overflow-hidden group border border-[#e8dedc] hover:shadow-lg transition-all md:col-span-1 rounded">
                     <img src="{{ asset('assets/img/royal.png') }}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 brightness-75">
                     <div class="absolute inset-0 bg-black/30"></div>
-                    <div class="absolute inset-0 flex flex-col items-center justify-center p-4">
-                        <div class="flex items-center gap-3">
-                            <img src="{{ asset('assets/img/logo.png') }}" class="w-8 h-8 object-contain invert">
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-2">
+                        <div class="flex items-center gap-2">
+                            <img src="{{ asset('assets/img/logo.png') }}" class="w-5 h-5 object-contain invert">
                             <div>
-                                <div class="text-[7px] text-white font-bold uppercase tracking-[0.3em] opacity-80 mb-0.5">Les Hôtels <br> Du Sénégal</div>
+                                <div class="text-[5px] text-white font-bold uppercase tracking-[0.2em] opacity-80 mb-0.5 leading-tight">Les Hôtels <br> Du Sénégal</div>
                             </div>
                         </div>
-                        <div class="text-xl font-serif text-white mt-2">Le Royal Saly</div>
+                        <div class="text-sm font-serif text-white mt-1">Le Royal Saly</div>
                     </div>
                 </a>
 
                 <!-- Pelican Card -->
-                <a href="/hotel/pelican-du-saloum" class="relative overflow-hidden group border border-[#e8dedc] hover:shadow-lg transition-all md:col-span-2 min-h-[140px]">
+                <a href="/hotel/pelican-du-saloum" class="relative overflow-hidden group border border-[#e8dedc] hover:shadow-lg transition-all md:col-span-2 rounded">
                     <img src="{{ asset('assets/img/pelican.png') }}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 brightness-75">
                     <div class="absolute inset-0 bg-black/30"></div>
-                    <div class="absolute inset-0 flex flex-col items-center justify-center p-4">
-                        <img src="{{ asset('assets/img/logo.png') }}" class="w-8 h-8 object-contain invert mb-2">
-                        <div class="text-2xl font-serif text-white drop-shadow-md">Le Pélican du Saloum</div>
-                        <div class="text-[9px] text-white font-bold uppercase tracking-[0.4em] opacity-80 mt-1">Toubacouta</div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-2">
+                        <div class="flex items-center gap-2 mb-1">
+                            <img src="{{ asset('assets/img/logo.png') }}" class="w-5 h-5 object-contain invert">
+                            <div class="text-lg font-serif text-white drop-shadow-md">Le Pélican du Saloum</div>
+                        </div>
+                        <div class="text-[7px] text-white font-bold uppercase tracking-[0.3em] opacity-80">Toubacouta</div>
                     </div>
                 </a>
 
                 <!-- Teranguest / Partners -->
-                <div class="bg-white/50 border border-[#e8dedc] p-6 flex flex-col justify-center items-center text-center md:col-span-1 min-h-[140px]">
-                    <div class="flex items-center gap-2 mb-4 text-[#a67c52]">
-                        <span class="material-symbols-outlined text-lg">location_on</span>
-                        <span class="text-[12px] font-bold uppercase tracking-widest italic text-[#4a3a35]">Teranguest</span>
+                <div class="bg-white/50 border border-[#e8dedc] p-2 flex flex-col justify-center items-center text-center md:col-span-1 rounded">
+                    <div class="flex items-center gap-1.5 mb-1.5 text-[#a67c52]">
+                        <span class="material-symbols-outlined text-sm">location_on</span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest italic text-[#4a3a35]">Teranguest</span>
                     </div>
-                    <div class="flex flex-wrapjustify-center gap-3 items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" class="h-3.5">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" class="h-6">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-3.5">
+                    <div class="flex flex-wrap justify-center gap-2 items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500 mb-2">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" class="h-2.5">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" class="h-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-2.5">
                     </div>
-                    <div class="mt-4 pt-4 border-t border-[#e8dedc]/50 w-full">
-                        <p class="text-[8px] font-bold uppercase tracking-[0.2em] text-[#8c7a76] opacity-50">WIEFC . CREA 77227 . BRULAN</p>
+                    <div class="pt-1.5 border-t border-[#e8dedc]/50 w-full">
+                        <p class="text-[6px] font-bold uppercase tracking-[0.2em] text-[#8c7a76] opacity-50">WIEFC . CREA 77227 . BRULAN</p>
                     </div>
                 </div>
             </div>
