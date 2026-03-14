@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('hotel_key'); // 'royal', 'pelican', 'nema'
             $table->string('category'); // 'hotel', 'pool', 'food', 'spa', 'room', 'event'
-            $table->string('image_path');
-            $table->string('title')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

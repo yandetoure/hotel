@@ -1,8 +1,8 @@
 <x-hotel-layout>
     @section('title', 'Galerie - Les Hôtels du Sénégal Group')
 
-    <div class="pt-32 pb-24 px-6 min-h-screen bg-[var(--bg-creme)]" x-data="{ 
-        hotel: '{{ $selectedHotel }}', 
+    <div class="pt-32 pb-24 px-6 min-h-screen bg-[var(--bg-creme)]" x-data="{
+        hotel: '{{ $selectedHotel }}',
         category: '{{ $selectedCategory }}',
         updateFilters() {
             window.location.href = `/galerie?hotel=${this.hotel}&category=${this.category}`;
@@ -22,22 +22,22 @@
             <div class="flex flex-col space-y-8 mb-16">
                 <!-- Hotel Filter -->
                 <div class="flex flex-wrap justify-center gap-4">
-                    <button @click="hotel = 'all'; updateFilters()" 
+                    <button @click="hotel = 'all'; updateFilters()"
                         :class="hotel === 'all' ? 'bg-primary-brown text-white' : 'bg-white/50 text-gray-600 hover:bg-white'"
                         class="px-8 py-2 text-xs uppercase tracking-widest font-bold transition-all shadow-sm">
                         Tous les Hôtels
                     </button>
-                    <button @click="hotel = 'royal'; updateFilters()" 
+                    <button @click="hotel = 'royal'; updateFilters()"
                         :class="hotel === 'royal' ? 'bg-primary-brown text-white' : 'bg-white/50 text-gray-600 hover:bg-white'"
                         class="px-8 py-2 text-xs uppercase tracking-widest font-bold transition-all shadow-sm">
                         Le Royal Saly
                     </button>
-                    <button @click="hotel = 'pelican'; updateFilters()" 
+                    <button @click="hotel = 'pelican'; updateFilters()"
                         :class="hotel === 'pelican' ? 'bg-primary-brown text-white' : 'bg-white/50 text-gray-600 hover:bg-white'"
                         class="px-8 py-2 text-xs uppercase tracking-widest font-bold transition-all shadow-sm">
                         Le Pélican du Saloum
                     </button>
-                    <button @click="hotel = 'nema'; updateFilters()" 
+                    <button @click="hotel = 'nema'; updateFilters()"
                         :class="hotel === 'nema' ? 'bg-primary-brown text-white' : 'bg-white/50 text-gray-600 hover:bg-white'"
                         class="px-8 py-2 text-xs uppercase tracking-widest font-bold transition-all shadow-sm">
                         Le Néma Kadior
@@ -71,7 +71,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 @forelse($items as $item)
                     <div class="group relative aspect-video overflow-hidden border border-white/60 shadow-sm hover:shadow-xl transition-all duration-700 cursor-zoom-in">
-                        <img src="{{ asset($item->image_path) }}" alt="{{ $item->category }}"
+                        <img src="{{ $item->getFirstMediaUrl('galerie','galerie') }}" alt="{{ $item->category }}"
                             class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110">
                         <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center text-white p-6">
                             <span class="text-[10px] uppercase tracking-[0.4em] mb-2">{{ $item->category }}</span>

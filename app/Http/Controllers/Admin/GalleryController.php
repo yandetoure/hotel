@@ -22,17 +22,17 @@ class GalleryController extends Controller
         $request->validate([
             'hotel_key' => 'required|string',
             'category' => 'required|string',
-            'image' => 'required|image|max:2048',
+            'image' => 'required|image',
         ]);
 
         try {
-            $path = $request->file('image')->store('gallery', 'public');
 
-            GalleryItem::create([
+           $galerie =  GalleryItem::create([
                 'hotel_key' => $request->hotel_key,
-                'category' => $request->category,
-                'image_path' => 'storage/' . $path,
+                'category' => $request->category
             ]);
+
+            $galerie->addMediaFromRequest('image')->toMediaCollection('galerie');
 
             return redirect()->back()->with('success', 'Image ajoutée avec succès !');
         } catch (\Exception $e) {
@@ -57,7 +57,7 @@ class GalleryController extends Controller
             if (str_starts_with($gallery->image_path, 'storage/')) {
                 Storage::disk('public')->delete(str_replace('storage/', '', $gallery->image_path));
             }
-            
+
             $path = $request->file('image')->store('gallery', 'public');
             $data['image_path'] = 'storage/' . $path;
         }

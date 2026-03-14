@@ -4,8 +4,8 @@
         <h3 class="text-4xl font-black tracking-tight text-white">Gestion de la <span class="text-gradient">Galerie</span></h3>
     </x-slot>
 
-    <div class="py-12" x-data="{ 
-        showModal: false, 
+    <div class="py-12" x-data="{
+        showModal: false,
         editingItem: null,
         hotel_key: 'royal',
         category: 'hotel',
@@ -73,7 +73,7 @@
                 @foreach($items as $item)
                     <div class="glass rounded-[2rem] border-white/5 overflow-hidden group relative">
                         <div class="aspect-square overflow-hidden">
-                            <img src="{{ asset($item->image_path) }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <img src="{{ $item->getFirstMediaUrl('galerie','preview') }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         </div>
                         <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-6 text-center">
                             <div class="text-[10px] font-bold text-amber-500 uppercase tracking-widest mb-1">{{ $item->hotel_key }}</div>
@@ -105,7 +105,7 @@
         </div>
 
         <!-- Modal Form -->
-        <div x-show="showModal" 
+        <div x-show="showModal"
              class="fixed inset-0 z-[110] flex items-center justify-center p-6 bg-black/80 backdrop-blur-sm"
              x-cloak
              x-transition:enter="transition ease-out duration-300"
@@ -114,12 +114,12 @@
              x-transition:leave="transition ease-in duration-200"
              x-transition:leave-start="opacity-100"
              x-transition:leave-end="opacity-0">
-            
+
             <div class="glass w-full max-w-xl rounded-[3rem] border-white/10 p-10 relative" @click.away="showModal = false">
                 <button @click="showModal = false" class="absolute top-8 right-8 text-slate-500 hover:text-white transition-colors">
                     ✕
                 </button>
-                
+
                 <h3 class="text-2xl font-black text-white mb-8">
                     <span x-text="editingItem ? 'Modifier' : 'Ajouter'"></span> une <span class="text-gradient">Photo</span>
                 </h3>
