@@ -13,17 +13,23 @@ class RoomController extends Controller
     public function index()
     {
         $rooms = Room::with('roomType')->orderBy('room_number')->get();
-        $roomTypes = RoomType::all();
-        return view('admin.rooms.index', compact('rooms', 'roomTypes'));
+        return view('admin.rooms.index', compact('rooms'));
+    }
+
+    public function create()
+    {
+        $roomTypes = RoomType::orderBy('name')->get();
+        $room = new Room();
+        return view('admin.rooms.create', compact('roomTypes', 'room'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'room_number' => 'required|string|unique:rooms,room_number',
+            'room_number'  => 'required|string|unique:rooms,room_number',
             'room_type_id' => 'required|exists:room_types,id',
-            'status' => 'required|in:available,occupied,maintenance',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:4096',
+            'status'       => 'required|in:available,occupied,maintenance',
+            'image'        => 'nullable|image|mimes:jpeg,png,jpg,webp|max:4096',
         ]);
 
         $data = $request->only(['room_number', 'room_type_id', 'status']);
@@ -34,22 +40,27 @@ class RoomController extends Controller
 
         Room::create($data);
 
-        return redirect()->back()->with('success', 'Chambre ajoutée avec succès !');
+        return redirect()->route('admin.rooms')->with('success', 'Chambre ajoutée avec succès !');
+    }
+
+    public function edit(Room $room)
+    {
+        $roomTypes = RoomType::orderBy('name')->get();
+        return view('admin.rooms.edit', compact('room', 'roomTypes'));
     }
 
     public function update(Request $request, Room $room)
     {
         $request->validate([
-            'room_number' => 'required|string|unique:rooms,room_number,' . $room->id,
+            'room_number'  => 'required|string|unique:rooms,room_number,' . $room->id,
             'room_type_id' => 'required|exists:room_types,id',
-            'status' => 'required|in:available,occupied,maintenance',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:4096',
+            'status'       => 'required|in:available,occupied,maintenance',
+            'image'        => 'nullable|image|mimes:jpeg,png,jpg,webp|max:4096',
         ]);
 
         $data = $request->only(['room_number', 'room_type_id', 'status']);
 
         if ($request->hasFile('image')) {
-            // Supprimer l'ancienne image si elle existe
             if ($room->image) {
                 Storage::disk('public')->delete($room->image);
             }
@@ -58,7 +69,7 @@ class RoomController extends Controller
 
         $room->update($data);
 
-        return redirect()->back()->with('success', 'Chambre mise à jour !');
+        return redirect()->route('admin.rooms')->with('success', 'Chambre mise à jour !');
     }
 
     public function destroy(Room $room)
@@ -68,6 +79,6 @@ class RoomController extends Controller
         }
         $room->delete();
 
-        return redirect()->back()->with('success', 'Chambre supprimée.');
+        return redirect()->route('admin.rooms')->with('success', 'Chambre supprimée.');
     }
 }

@@ -15,6 +15,11 @@ class RoomTypeController extends Controller
         return view('admin.room-types.index', compact('roomTypes'));
     }
 
+    public function create()
+    {
+        return view('admin.room-types.create');
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -34,7 +39,12 @@ class RoomTypeController extends Controller
 
         RoomType::create($data);
 
-        return redirect()->back()->with('success', 'Type de chambre créé avec succès !');
+        return redirect()->route('admin.room-types')->with('success', 'Type de chambre créé avec succès !');
+    }
+
+    public function edit(RoomType $roomType)
+    {
+        return view('admin.room-types.edit', compact('roomType'));
     }
 
     public function update(Request $request, RoomType $roomType)
@@ -59,7 +69,7 @@ class RoomTypeController extends Controller
 
         $roomType->update($data);
 
-        return redirect()->back()->with('success', 'Type de chambre mis à jour !');
+        return redirect()->route('admin.room-types')->with('success', 'Type de chambre mis à jour !');
     }
 
     public function destroy(RoomType $roomType)
@@ -69,6 +79,6 @@ class RoomTypeController extends Controller
         }
         $roomType->delete();
 
-        return redirect()->back()->with('success', 'Type de chambre supprimé.');
+        return redirect()->route('admin.room-types')->with('success', 'Type de chambre supprimé.');
     }
 }

@@ -33,7 +33,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Volt::route('dashboard', 'admin.dashboard')->name('admin.dashboard');
     // Room Management
     Route::get('rooms', [App\Http\Controllers\Admin\RoomController::class, 'index'])->name('admin.rooms');
+    Route::get('rooms/create', [App\Http\Controllers\Admin\RoomController::class, 'create'])->name('admin.rooms.create');
     Route::post('rooms', [App\Http\Controllers\Admin\RoomController::class, 'store'])->name('admin.rooms.store');
+    Route::get('rooms/{room}/edit', [App\Http\Controllers\Admin\RoomController::class, 'edit'])->name('admin.rooms.edit');
     Route::put('rooms/{room}', [App\Http\Controllers\Admin\RoomController::class, 'update'])->name('admin.rooms.update');
     Route::delete('rooms/{room}', [App\Http\Controllers\Admin\RoomController::class, 'destroy'])->name('admin.rooms.destroy');
     
@@ -45,7 +47,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
     // Room Type Management
     Route::get('room-types', [App\Http\Controllers\Admin\RoomTypeController::class, 'index'])->name('admin.room-types');
+    Route::get('room-types/create', [App\Http\Controllers\Admin\RoomTypeController::class, 'create'])->name('admin.room-types.create');
     Route::post('room-types', [App\Http\Controllers\Admin\RoomTypeController::class, 'store'])->name('admin.room-types.store');
+    Route::get('room-types/{roomType}/edit', [App\Http\Controllers\Admin\RoomTypeController::class, 'edit'])->name('admin.room-types.edit');
     Route::put('room-types/{roomType}', [App\Http\Controllers\Admin\RoomTypeController::class, 'update'])->name('admin.room-types.update');
     Route::delete('room-types/{roomType}', [App\Http\Controllers\Admin\RoomTypeController::class, 'destroy'])->name('admin.room-types.destroy');
 });
