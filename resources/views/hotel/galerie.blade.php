@@ -92,7 +92,7 @@
                          x-transition:enter-end="opacity-100 scale-100"
                          @click="openLightbox('{{ $item->getFirstMediaUrl('galerie') }}')"
                          class="group relative aspect-[4/3] overflow-hidden rounded-xl border border-[#e8dedc] shadow-sm hover:shadow-xl transition-all duration-700 cursor-zoom-in">
-                        <img src="{{ $item->getFirstMediaUrl('galerie','preview') }}" alt="{{ $item->category }}"
+                        <img src="{{ $item->getFirstMediaUrl('galerie','galerie') }}" alt="{{ $item->category }}"
                             class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                         <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center text-white p-6">
                             <span class="material-symbols-outlined text-3xl mb-3 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-75 text-[#a67c52]">zoom_in</span>
