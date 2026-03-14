@@ -74,7 +74,7 @@
                     <!-- Mini feature stats -->
                     <div class="flex items-center gap-0 mb-8 divide-x divide-[#e8dedc]">
                         @foreach($data['welcome_stats'] as $stat)
-                            <div class="flex items-center gap-2 px-5 first:pl-0 text-[#4a3a35]">
+                            <div class="flex items-center gap-2 px-10 first:pl-0 text-[#4a3a35]">
                                 <span class="text-lg">{{ $stat['icon'] }}</span>
                                 <span class="text-[11px] font-bold uppercase tracking-widest italic">{{ $stat['label'] }}</span>
                             </div>
