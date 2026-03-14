@@ -80,7 +80,7 @@
                             </div>
                         @endforeach
                     </div>
-                    <a href="#activites" class="self-start px-10 py-3 bg-[#a67c52] text-white text-[10px] font-bold uppercase tracking-widest rounded shadow hover:bg-[#8c6542] transition-all italic">
+                    <a href="#activites" class="self-end px-10 py-3 bg-[#a67c52] text-white text-[10px] font-bold uppercase tracking-widest rounded shadow hover:bg-[#8c6542] transition-all italic">
                         Vers Activités Nautiques <span class="ml-1 opacity-70">›</span>
                     </a>
                 </div>
