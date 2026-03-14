@@ -53,15 +53,13 @@ $seminarData = [
         <div class="absolute inset-0">
             <img src="{{ $seminarData['hero_image'] }}"
                 class="w-full h-full object-cover scale-105 animate-slow-zoom brightness-75">
-            <div class="absolute inset-0 bg-black/40"></div>
+            <div class="absolute inset-0 bg-black/40 xl:bg-gradient-to-r from-black/70 to-transparent"></div>
         </div>
         <div class="relative z-10 h-full flex flex-col justify-center items-start max-w-7xl mx-auto px-6 w-full">
-            <h1 class="font-serif text-5xl md:text-7xl text-white mb-2 leading-tight drop-shadow-lg italic">Salons &
-                Salles de Séminaire</h1>
-            <p class="text-xl md:text-3xl text-white/90 font-light mb-10 drop-shadow-md">Organisez vos événements
-                professionnels à {{ $seminarData['location'] }}</p>
+            <h1 class="font-serif text-5xl md:text-[5.5rem] text-white mb-4 leading-tight drop-shadow-lg">Salons & Salles de Séminaire</h1>
+            <p class="text-xl md:text-3xl text-white/90 font-light mb-12 drop-shadow-md">Organisez vos événements professionnels à {{ $seminarData['location'] }}</p>
             <a href="#devis"
-                class="px-12 py-4 bg-[#a67c52] text-white text-xs font-bold uppercase tracking-[0.3em] rounded border border-[#b08d57]/30 shadow-2xl hover:bg-[#8c6542] hover:scale-105 transition-all">
+                class="px-10 py-3 bg-[#9c7b54]/90 text-white text-xl font-light rounded-sm border border-[#ceb096] shadow-xl hover:bg-[#866644] hover:scale-[1.02] transition-all">
                 Réserver
             </a>
         </div>
@@ -74,50 +72,33 @@ $seminarData = [
 
         <div class="max-w-7xl mx-auto relative z-10">
             <!-- Welcome Part -->
-            <div class="flex flex-col lg:flex-row gap-16 items-start mb-24">
-                <div class="lg:w-[40%]">
-                    <h2 class="font-serif text-4xl text-[#4a3a35] mb-8 leading-tight italic">Organisez votre Séminaire
-                        au {{ $seminarData['hotel_name'] }}</h2>
-                    <p class="text-[#8c7a76] leading-relaxed mb-6 font-light">
-                        Découvrez un hôtel balnéaire de charme à {{ $seminarData['location'] }}, alliant luxe et détente
-                        au bord de l'océan. {{ $seminarData['hotel_name'] }} vous propose un cadre idyllique avec ses
-                        chambres confortables, ses restaurants et bars en bord de mer, plusieurs piscines, son spa de
-                        qualité et un large choix d'activités sénégalaise :
-                    </p>
-                    <div class="relative w-full h-16 pointer-events-none">
-                        <svg class="absolute top-0 left-0 w-32 h-16 text-[#a67c52] opacity-40 rotate-12"
-                            viewBox="0 0 120 40" fill="none" stroke="currentColor">
-                            <path d="M10 30 C 40 10, 80 50, 110 10" stroke-width="1.5" stroke-linecap="round" />
-                            <path d="M105 15 L 110 10 L 105 5" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start mb-16">
+                <div class="lg:w-3/5">
+                    <h2 class="font-serif text-4xl lg:text-5xl text-[#3b2f2f] mb-8 leading-tight">Organisez votre Séminaire au {{ $seminarData['hotel_name'] }}</h2>
+                    <div class="text-[#4a3a35] text-[18px] leading-relaxed font-light mt-4">
+                        Découvrez un hôtel balnéaire de charme à {{ $seminarData['location'] }}, alliant luxe et détente au bord de l'océan, Le {{ $seminarData['hotel_name'] }} vous propose un cadre idyllique avec ses chambres confortables, ses restaurants et bars en bord de mer, plusieurs piscines, son spa de qualité et un large choix d'activités sénégalaise:
+                        <span class="inline-block align-middle ml-2 opacity-60">
+                            <svg class="w-8 h-8 text-[#a67c52]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M12 4C12 4 9 10 5 12C9 14 12 20 12 20C12 20 15 14 19 12C15 10 12 4 12 4Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M18 18C18 18 16 20 14 21" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
                     </div>
                 </div>
 
-                <div class="lg:w-[30%] flex flex-col gap-4">
-                    <img src="{{ $seminarData['welcome_images']['main'] }}"
-                        class="w-full aspect-[4/5] object-cover rounded shadow-lg border-2 border-white/50">
-                    <div class="grid grid-cols-2 gap-4">
-                        <img src="{{ $seminarData['welcome_images']['small1'] }}"
-                            class="w-full aspect-square object-cover rounded shadow-md">
-                        <img src="{{ $seminarData['welcome_images']['small2'] }}"
-                            class="w-full aspect-square object-cover rounded shadow-md">
-                    </div>
-                </div>
-
-                <div class="lg:w-[30%] space-y-7 lg:pt-14">
+                <div class="lg:w-2/5 space-y-6 lg:pt-16">
                     @foreach($seminarData['features'] as $feature)
-                    <div class="flex items-center gap-5 group">
-                        <div
-                            class="w-2.5 h-2.5 bg-[#a67c52] rotate-45 group-hover:scale-125 transition-transform duration-500 opacity-60">
-                        </div>
-                        <span
-                            class="text-[#4a3a35] font-light tracking-wide group-hover:translate-x-2 transition-all duration-500 text-[17px] leading-tight italic">{{
-                            $feature }}</span>
+                    <div class="flex items-center gap-4 group">
+                        <svg class="w-4 h-4 text-[#a67c52]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="text-[#3b2f2f] font-light tracking-wide text-[18px]">{{ $feature }}</span>
                     </div>
                     @endforeach
                 </div>
             </div>
+
+ 
 
             <!-- Offers Cards Part - Background adjustment -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
