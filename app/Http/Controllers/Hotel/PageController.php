@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Hotel;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hotel;
 use App\Models\RoomType;
 
 class PageController extends Controller
@@ -33,11 +34,16 @@ class PageController extends Controller
     }
 
     /**
-     * Page Hôtels - toutes les catégories de chambres
+     * Page Hôtels - types de chambres groupés par hôtel avec filtres Alpine.js
      */
     public function hotels()
     {
-        $roomTypes = RoomType::orderBy('category')->orderBy('price_per_night')->get();
-        return view('hotels.index', compact('roomTypes'));
+        $hotels   = Hotel::where('active', true)->orderBy('name')->get();
+        $roomTypes = RoomType::with('hotel')
+            ->whereHas('hotel', fn($q) => $q->where('active', true))
+            ->orderBy('price_per_night')
+            ->get();
+
+        return view('hotels.index', compact('hotels', 'roomTypes'));
     }
 }

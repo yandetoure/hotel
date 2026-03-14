@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
 Route::view('/', 'welcome')->name('home');
-Route::view('/hotels', 'hotels.index')->name('hotels.index');
+Route::get('/hotels', [App\Http\Controllers\Hotel\PageController::class, 'hotels'])->name('hotels.index');
 Route::get('/offres', [App\Http\Controllers\Hotel\PageController::class, 'offres'])->name('offres');
 Route::get('/seminaires', [App\Http\Controllers\Hotel\PageController::class, 'seminaires'])->name('seminaires');
 Route::view('/restaurant-bars', 'restaurants')->name('restaurants');
