@@ -18,7 +18,7 @@
                 <label class="relative cursor-pointer group">
                     <input type="radio" name="room_type_id" value="{{ $type->id }}"
                            class="peer hidden"
-                           {{ old('room_type_id', $room->room_type_id ?? '') == $type->id ? 'checked' : '' }}>
+                           {{ old('room_type_id', $room->room_type_id ?? $roomTypes->first()->id) == $type->id ? 'checked' : '' }}>
                     <div class="flex items-center gap-4 p-4 rounded-2xl border border-white/10 bg-slate-900
                                 peer-checked:border-amber-500/60 peer-checked:bg-amber-500/10
                                 hover:border-white/20 transition-all">

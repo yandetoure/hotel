@@ -152,28 +152,52 @@ $seminarData = [
         <div class="absolute inset-0 opacity-[0.03] pointer-events-none"
             style="background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');"></div>
         <div class="max-w-7xl mx-auto relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                @foreach($seminarData['specific_rooms'] as $room)
-                <div
-                    class="group bg-white/40 backdrop-blur-sm rounded border border-white/50 shadow-sm overflow-hidden flex flex-col">
-                    <div class="aspect-[16/10] overflow-hidden">
-                        <img src="{{ $room['image'] }}"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    </div>
-                    <div class="p-10 text-center flex-1 flex flex-col">
-                        <h3 class="font-serif text-2xl text-[#4a3a35] mb-3 italic">{{ $room['name'] }}</h3>
-                        <p class="text-[#b08d57] text-[10px] font-bold uppercase tracking-[0.4em] mb-8 italic">{{
-                            $room['capacity'] }}</p>
-                        <div class="mt-auto">
-                            <a href="#"
-                                class="inline-block w-full py-4 bg-[#a67c52] text-white text-[11px] font-bold uppercase tracking-widest rounded shadow-md hover:bg-[#8c6542] transition-all italic">
-                                Demande de Devis
-                            </a>
+
+            @if($salles->isEmpty())
+                <div class="text-center py-20">
+                    <p class="text-[#8c7a76] text-lg font-light italic">Aucune salle de séminaire disponible pour le moment.</p>
+                </div>
+            @else
+                <h2 class="font-serif text-4xl text-center text-[#4a3a35] mb-16 italic">Nos Salles de Séminaire</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    @foreach($salles as $salle)
+                    <div class="group bg-white/40 backdrop-blur-sm rounded border border-white/50 shadow-sm overflow-hidden flex flex-col">
+                        <div class="aspect-[16/10] overflow-hidden bg-[#e8dedc]">
+                            @if($salle->image)
+                                <img src="{{ asset('storage/' . $salle->image) }}"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            @else
+                                <div class="w-full h-full flex items-center justify-center">
+                                    <svg class="w-16 h-16 text-[#c4a882] opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5z" stroke-width="1.5"/>
+                                    </svg>
+                                </div>
+                            @endif
+                        </div>
+                        <div class="p-10 text-center flex-1 flex flex-col">
+                            <h3 class="font-serif text-2xl text-[#4a3a35] mb-3 italic">{{ $salle->name }}</h3>
+                            <p class="text-[#b08d57] text-[10px] font-bold uppercase tracking-[0.4em] mb-3 italic">
+                                Jusqu'à {{ $salle->capacity }} personnes
+                            </p>
+                            @if($salle->description)
+                                <p class="text-[#8c7a76] text-sm leading-relaxed mb-6 font-light italic opacity-80 line-clamp-3">
+                                    {{ $salle->description }}
+                                </p>
+                            @endif
+                            <p class="text-[#4a3a35] font-bold text-lg mb-6">
+                                {{ number_format($salle->price_per_night, 0, ',', ' ') }} FCFA <span class="text-[11px] font-normal text-[#8c7a76]">/ jour</span>
+                            </p>
+                            <div class="mt-auto">
+                                <a href="{{ route('contact') }}"
+                                    class="inline-block w-full py-4 bg-[#a67c52] text-white text-[11px] font-bold uppercase tracking-widest rounded shadow-md hover:bg-[#8c6542] transition-all italic">
+                                    Demande de Devis
+                                </a>
+                            </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
-                @endforeach
-            </div>
+            @endif
         </div>
     </section>
 

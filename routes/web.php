@@ -6,8 +6,8 @@ use Livewire\Volt\Volt;
 
 Route::view('/', 'welcome')->name('home');
 Route::view('/hotels', 'hotels.index')->name('hotels.index');
-Route::view('/offres', 'offres')->name('offres');
-Route::view('/seminaires', 'seminaires')->name('seminaires');
+Route::get('/offres', [App\Http\Controllers\Hotel\PageController::class, 'offres'])->name('offres');
+Route::get('/seminaires', [App\Http\Controllers\Hotel\PageController::class, 'seminaires'])->name('seminaires');
 Route::view('/restaurant-bars', 'restaurants')->name('restaurants');
 Route::view('/activites', 'activites')->name('activites');
 Route::get('/galerie', [App\Http\Controllers\Hotel\GalleryController::class, 'index'])->name('galerie');

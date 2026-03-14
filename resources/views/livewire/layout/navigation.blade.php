@@ -34,9 +34,6 @@ new class extends Component {
                             wire:navigate>
                             {{ __('Console Admin') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('admin.rooms')" :active="request()->routeIs('admin.rooms')" wire:navigate>
-                            {{ __('Chambres') }}
-                        </x-nav-link>
                         <x-nav-link :href="route('admin.room-types')" :active="request()->routeIs('admin.room-types')" wire:navigate>
                             {{ __('Types') }}
                         </x-nav-link>
@@ -113,10 +110,6 @@ new class extends Component {
                 <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')"
                     wire:navigate>
                     {{ __('Console Admin') }}
-                </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('admin.rooms')" :active="request()->routeIs('admin.rooms')"
-                    wire:navigate>
-                    {{ __('Chambres') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('admin.room-types')" :active="request()->routeIs('admin.room-types')"
                     wire:navigate>
